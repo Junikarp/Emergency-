@@ -1,5 +1,7 @@
 package com.emergency.model.dto;
 
+import java.util.List;
+
 public class User {
 	private String id;
 	private String name;
@@ -8,6 +10,15 @@ public class User {
 	private int weight;
 	private String bloodtype;
 	private String guardianTel;
+	private List<Disease> diseaseList;
+
+	public List<Disease> getDiseaseList() {
+		return diseaseList;
+	}
+
+	public void setDiseaseList(List<Disease> diseaseList) {
+		this.diseaseList = diseaseList;
+	}
 
 	public String getId() {
 		return id;
