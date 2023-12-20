@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.emergency.model.dao.DiseaseDao">
+	<insert id="insertDisease" parameterType="Disease">
+		insert into disease (user_id, category, value)
+		values (#{user_id}, #{category}, #{value})
+	</insert>
+	
+	<delete id="DeleteDisease" parameterType="int">
+		delete from disease where diseaseId = #{diseaseId}
+	</delete>
+	
+	<select id="selectAllDisease" parameterType="String">
+		select * from disease where userId = #{userId} 
+	</select>
+</mapper>

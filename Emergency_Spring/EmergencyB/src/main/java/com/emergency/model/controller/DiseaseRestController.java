@@ -30,11 +30,11 @@ public class DiseaseRestController {
 	DiseaseService diseaseService;
 	
 	// 질환 조회
-	@GetMapping("/mypage/{userId}/{category}")
+	@GetMapping("/mypage/{userId}")
 	@ApiOperation(value = "마이 페이지")
-	public ResponseEntity<?> selectMyPage(@PathVariable String userId,@PathVariable String category) {
+	public ResponseEntity<?> selectMyPage(@PathVariable String userId) {
 		try {
-			List<Disease> list = diseaseService.selectAllDisease(userId, category);
+			List<Disease> list = diseaseService.selectAllDisease(userId);
 			return new ResponseEntity<>(list, HttpStatus.OK);
 		} catch(Exception e) {
 			String errMsg = e.getMessage();
