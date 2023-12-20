@@ -2,9 +2,18 @@ package com.emergency.model.dto;
 
 public class Disease {
 	private String user_id;
+	private int diseaseId;
 	private String category;
 	private String value;
 
+	public int getDiseaseId() {
+		return diseaseId;
+	}
+	
+	public void setDiseaseId(int diseaseId) {
+		this.diseaseId = diseaseId;
+	}
+	
 	public String getUser_id() {
 		return user_id;
 	}
