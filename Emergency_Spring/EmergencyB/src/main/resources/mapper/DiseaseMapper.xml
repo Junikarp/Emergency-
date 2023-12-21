@@ -4,11 +4,11 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.emergency.model.dao.DiseaseDao">
 	<insert id="insertDisease" parameterType="Disease">
-		insert into disease (user_id, category, value)
-		values (#{user_id}, #{category}, #{value})
+		insert into disease (userId, category, value)
+		values (#{userId}, #{category}, #{value})
 	</insert>
 	
-	<delete id="DeleteDisease" parameterType="int">
+	<delete id="deleteDisease" parameterType="int">
 		delete from disease where diseaseId = #{diseaseId}
 	</delete>
 	

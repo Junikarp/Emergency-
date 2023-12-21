@@ -20,13 +20,13 @@ public class DiseaseServiceImpl implements DiseaseService {
 	}
 
 	@Override
-	public int UpdateDisease(Disease disease) {
-		return diseaseDao.UpdateDisease(disease);
+	public int updateDisease(Disease disease) {
+		return diseaseDao.updateDisease(disease);
 	}
 
 	@Override
-	public int DeleteDisease(int diseaseId) {
-		return diseaseDao.DeleteDisease(diseaseId);
+	public int deleteDisease(int diseaseId) {
+		return diseaseDao.deleteDisease(diseaseId);
 	}
 
 	@Override

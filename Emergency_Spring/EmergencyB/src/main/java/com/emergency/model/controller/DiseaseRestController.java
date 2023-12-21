@@ -60,11 +60,11 @@ public class DiseaseRestController {
 	}
 	
 	// 질환 삭제
-	@DeleteMapping("/mypage")
+	@DeleteMapping("/mypage/{diseaseId}")
 	@ApiOperation(value = "질환 삭제")
 	public ResponseEntity<?> deleteDisease(@PathVariable int diseaseId) {
 		try {
-			int result = diseaseService.DeleteDisease(diseaseId);
+			int result = diseaseService.deleteDisease(diseaseId);
 			return new ResponseEntity<>(result, HttpStatus.OK);
 		} catch(Exception e) {
 			String errMsg = e.getMessage();

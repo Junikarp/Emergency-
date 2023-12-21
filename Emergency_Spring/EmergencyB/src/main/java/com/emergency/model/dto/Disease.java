@@ -5,7 +5,7 @@ import lombok.Setter;
 
 @Getter @Setter
 public class Disease {
-	private String user_id;
+	private String userId;
 	private int diseaseId;
 	private String category;
 	private String value;

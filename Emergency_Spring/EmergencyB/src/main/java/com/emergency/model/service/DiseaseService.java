@@ -10,10 +10,10 @@ public interface DiseaseService {
 	int insertDisease(Disease disease);
 
 	// 질환 내역 수정
-	int UpdateDisease(Disease disease);
+	int updateDisease(Disease disease);
 
 	// 질환 내역 삭제
-	int DeleteDisease(int diseaseId);
+	int deleteDisease(int diseaseId);
 
 	// 질환 내역 가져오기
 	List<Disease> selectAllDisease(String userId);
