@@ -16,5 +16,5 @@ public interface DiseaseService {
 	int deleteDisease(int diseaseId);
 
 	// 질환 내역 가져오기
-	List<Disease> selectAllDisease(String userId);
+	List<Disease> selectAllDisease(String userId, String category);
 }

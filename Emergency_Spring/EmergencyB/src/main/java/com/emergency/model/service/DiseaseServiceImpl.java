@@ -30,8 +30,8 @@ public class DiseaseServiceImpl implements DiseaseService {
 	}
 
 	@Override
-	public List<Disease> selectAllDisease(String userId) {
-		return diseaseDao.selectAllDisease(userId);
+	public List<Disease> selectAllDisease(String userId, String category) {
+		return diseaseDao.selectAllDisease(userId, category);
 	}
 	
 }

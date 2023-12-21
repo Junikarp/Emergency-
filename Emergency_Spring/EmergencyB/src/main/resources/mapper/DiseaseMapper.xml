@@ -12,7 +12,7 @@
 		delete from disease where diseaseId = #{diseaseId}
 	</delete>
 	
-	<select id="selectAllDisease" parameterType="String">
-		select * from disease where userId = #{userId} 
+	<select id="selectAllDisease" parameterType="Map" resultType="Disease">
+		select * from disease where userId = #{userId} and category = #{category}
 	</select>
 </mapper>

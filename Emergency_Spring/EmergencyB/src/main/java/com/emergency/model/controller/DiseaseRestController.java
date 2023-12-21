@@ -3,6 +3,7 @@ package com.emergency.model.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -30,11 +31,11 @@ public class DiseaseRestController {
 	DiseaseService diseaseService;
 	
 	// 질환 조회
-	@GetMapping("/mypage/{userId}")
+	@GetMapping("/mypage/{userId}/{category}")
 	@ApiOperation(value = "마이 페이지")
-	public ResponseEntity<?> selectMyPage(@PathVariable String userId) {
+	public ResponseEntity<?> selectMyPage(@PathVariable @Param("userId") String userId,@PathVariable @Param("category") String category) {
 		try {
-			List<Disease> list = diseaseService.selectAllDisease(userId);
+			List<Disease> list = diseaseService.selectAllDisease(userId, category);
 			return new ResponseEntity<>(list, HttpStatus.OK);
 		} catch(Exception e) {
 			String errMsg = e.getMessage();
