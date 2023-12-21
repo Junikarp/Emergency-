@@ -10,7 +10,7 @@ import io.jsonwebtoken.SignatureAlgorithm;
 @Component
 public class JwtUtil {
 	
-	private static final String SALT = "BREMEN";
+	private static final String SALT = "EMERGENCY";
 	
 	
 	//토큰 생성 메서드
