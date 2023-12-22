@@ -25,7 +25,7 @@
 		id = #{id}
 	</select>
 
-	<delete id="deleteUser" resultType="int" parameterType="String">
+	<delete id="deleteUser" parameterType="String">
 		DELETE FROM user
 		WHERE
 		id = #{id}
