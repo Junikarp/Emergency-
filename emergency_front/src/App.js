@@ -1,9 +1,10 @@
-import FooterNav from "./components/FooterNav";
+// App.js
+import Main from "./Main";
 
 function App() {
   return (
     <div className="App">
-      <FooterNav />
+      <Main />
     </div>
   );
 }

@@ -1,6 +1,9 @@
+import FooterNav from "../FooterNav";
+
 const ChatBot = () => {
   return (
     <>
+      <FooterNav />
       <h2>챗봇이유</h2>
     </>
   );
