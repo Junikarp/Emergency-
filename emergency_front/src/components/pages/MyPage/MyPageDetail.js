@@ -1,5 +1,12 @@
+import FooterNav from "../../FooterNav";
+
 const MyPageDetail = () => {
-  return;
+  return (
+    <>
+      <h2>디테일</h2>
+      <FooterNav />
+    </>
+  );
 };
 
 export default MyPageDetail;

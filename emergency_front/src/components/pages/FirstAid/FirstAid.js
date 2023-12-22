@@ -1,4 +1,4 @@
-import FooterNav from "../FooterNav";
+import FooterNav from "../../FooterNav";
 
 const FirstAid = () => {
   return (
