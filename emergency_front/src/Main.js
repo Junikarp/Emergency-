@@ -2,7 +2,7 @@
 import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
 import MyPage from "./components/pages/MyPage/MyPage";
 import Home from "./components/pages/Home";
-import ChatBot from "./components/pages/ChatBot";
+import ChatBot from "./components/pages/ChatBot/ChatBot";
 import FirstAid from "./components/pages/FirstAid/FirstAid";
 import OuchAndAllergy from "./components/pages/MyPage/OuchAndAllergy";
 import TakingMedicine from "./components/pages/MyPage/TakingMedicine";

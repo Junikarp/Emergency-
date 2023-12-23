@@ -1,0 +1,15 @@
+.userInputContainer {
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+.userInputText {
+  resize: none;
+  width: 80%;
+  height: 2.5rem;
+}
+
+button {
+  border: 0;
+}

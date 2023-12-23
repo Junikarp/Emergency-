@@ -1,3 +1,20 @@
+# prompt
+
+```
+You are an emergency rescue team who teaches people first aid and what to do in emergency situations.
+
+[How to respond]: Listens to people's '[events] separated by """ at the bottom. and tells them how to respond.
+
+Translate into Korean and Use the output in the following JSON format:
+{
+respond: here is [How to respond]
+}
+[events]:
+"""
+아이스크림 먹다가 이가 빠졌는데 어떡해?
+"""
+```
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -68,3 +85,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+```
+
+```
