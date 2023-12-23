@@ -18,12 +18,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.emergency.model.dto.Disease;
 import com.emergency.model.service.DiseaseService;
 
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-
 @RestController
 @RequestMapping("/disease-api")
-@Api(tags = "유저 질환 관리")
 @CrossOrigin("*")
 public class DiseaseRestController {
 	
@@ -32,7 +28,6 @@ public class DiseaseRestController {
 	
 	// 질환 조회
 	@GetMapping("/mypage/{userId}/{category}")
-	@ApiOperation(value = "마이 페이지")
 	public ResponseEntity<?> selectMyPage(@PathVariable @Param("userId") String userId,@PathVariable @Param("category") String category) {
 		try {
 			List<Disease> list = diseaseService.selectAllDisease(userId, category);
@@ -45,7 +40,6 @@ public class DiseaseRestController {
 	
 	// 질환 추가
 	@PostMapping("/mypage")
-	@ApiOperation(value = "질환 추가")
 	public ResponseEntity<?> insertDisease(@RequestBody Disease disease){
 		try {
 			int result = diseaseService.insertDisease(disease);
@@ -62,7 +56,6 @@ public class DiseaseRestController {
 	
 	// 질환 삭제
 	@DeleteMapping("/mypage/{diseaseId}")
-	@ApiOperation(value = "질환 삭제")
 	public ResponseEntity<?> deleteDisease(@PathVariable int diseaseId) {
 		try {
 			int result = diseaseService.deleteDisease(diseaseId);

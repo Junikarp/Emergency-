@@ -4,8 +4,6 @@ import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,12 +21,10 @@ import com.emergency.model.dto.User;
 import com.emergency.model.service.UserService;
 import com.emergency.model.util.JwtUtil;
 
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
+import jakarta.servlet.http.HttpSession;
 
 @RestController
 @RequestMapping("/api")
-@Api(tags = "유저 다루는 거에용")
 @CrossOrigin("*")
 public class UserRestController {
 
@@ -43,7 +39,6 @@ public class UserRestController {
 
 	// 마이 페이지
 	@GetMapping("/user/{id}")
-	@ApiOperation(value = "마이 페이지")
 	public ResponseEntity<?> selectUser(@PathVariable String id) {
 		try {
 			User user = userService.selectUser(id);
@@ -56,7 +51,6 @@ public class UserRestController {
 
 	// 회원 가입
 	@PostMapping("/user")
-	@ApiOperation(value = "회원 가입")
 	public ResponseEntity<?> createUser(@RequestBody User user) {
 		try {
 			int result = userService.createUser(user);
@@ -73,7 +67,6 @@ public class UserRestController {
 
 	// 로그인
 	@PostMapping("/login")
-	@ApiOperation(value = "로그인")
 	public ResponseEntity<Map<String, Object>> login(@RequestBody User user) {
 		Map<String, Object> result = new HashMap<String, Object>();
 
@@ -98,7 +91,6 @@ public class UserRestController {
 	}
 
 	@GetMapping("/logout")
-	@ApiOperation(value = "로그아웃")
 	public ResponseEntity<?> logout(HttpSession session) {
 
 		session.invalidate();
@@ -108,7 +100,6 @@ public class UserRestController {
 
 	// 회원 가입
 	@DeleteMapping("/user/{id}")
-	@ApiOperation(value = "회원 탈퇴")
 	public ResponseEntity<?> deleteUser(@PathVariable @RequestBody String id) {
 		int result = userService.deleteUser(id);
 		if (result == 1) {
@@ -120,7 +111,6 @@ public class UserRestController {
 	
 	// 회원 정보 수정
 	@PutMapping("/user")
-	@ApiOperation(value = "회원 정보 수정")
 	public ResponseEntity<?> updateUser(@RequestBody User user) {
 		int result = userService.updateUser(user);
 		if (result == 1) {
