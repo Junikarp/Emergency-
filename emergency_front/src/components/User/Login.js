@@ -7,6 +7,7 @@ const Login = () => {
 
   const handleLogin = async (newToken) => {
     setToken(newToken);
+    console.log(newToken);
   };
   return (
     <div>

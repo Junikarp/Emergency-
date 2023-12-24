@@ -28,7 +28,10 @@ const LoginForm = ({ onLogin }) => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(credentials),
+        body: JSON.stringify({
+          id: credentials.id,
+          password: credentials.password,
+        }),
       });
 
       console.log(credentials);
