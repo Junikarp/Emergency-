@@ -7,4 +7,4 @@ import org.springframework.context.annotation.Configuration;
 @MapperScan(basePackages = "com.emergency.model.dao")
 public class DBConfig {
 
-}
+}  

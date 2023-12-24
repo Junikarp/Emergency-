@@ -2,8 +2,7 @@ import FooterNav from "../../../components/FooterNav";
 import { useState } from "react";
 import { CallGPT } from "../../api/ChatGpt";
 import ChatBotInput from "./ChatBotInput";
-import styles from "./ChatBot.module.css";
-
+import "./ChatBot.css";
 const apiKey = process.env.REACT_APP_GPT_API_KEY;
 // const dummyData = `{"respond": "이가 빠진 경우, 즉시 다음과 같은 조치를 취해야 합니다:
 //   1. 치아가 땅에 떨어져 있을 경우, 깨끗한 흐르는 물로 치아를 씻어주세요
@@ -47,16 +46,14 @@ const ChatBot = () => {
 
   return (
     <>
-      <header className={styles.chatbotglobalheader}>
+      <header className="chatbot-header">
         <h2>이응</h2>
       </header>
       <div>
         {chat.map((message, index) => (
           <div
             key={index}
-            className={
-              message.role === "user" ? "{styles.userChat}" : "{styles.gptChat}"
-            }
+            className={message.role === "user" ? "userChat" : "gptChat"}
           >
             {message.content}
           </div>
