@@ -6,6 +6,8 @@ import org.springframework.stereotype.Service;
 import com.emergency.model.dao.UserDao;
 import com.emergency.model.dto.User;
 
+import java.util.List;
+
 @Service
 public class UserServiceImpl implements UserService{
 
@@ -31,5 +33,11 @@ public class UserServiceImpl implements UserService{
 	public int deleteUser(String id) {
 		return userDao.deleteUser(id);
 	}
-	
+
+	@Override
+	public List<String> selectAllUserName() {
+		return userDao.selectAllUserName();
+	}
+
+
 }

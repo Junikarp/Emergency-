@@ -2,6 +2,7 @@ package com.emergency.model.controller;
 
 import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -117,6 +118,17 @@ public class UserRestController {
 			return new ResponseEntity<>(result, HttpStatus.CREATED);
 		} else {
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
+	}
+
+	@GetMapping("/userid")
+	public ResponseEntity<?> selectAllUserName() {
+		try {
+			List<String> list = userService.selectAllUserName();
+			return new ResponseEntity<>(list, HttpStatus.OK);
+		} catch (Exception e) {
+			String errMsg = e.getMessage();
+			return new ResponseEntity<>(errMsg, HttpStatus.NOT_FOUND);
 		}
 	}
 }

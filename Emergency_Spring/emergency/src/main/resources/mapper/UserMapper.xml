@@ -31,4 +31,8 @@
 		id = #{id}
 	</delete>
 
+	<select id="selectAllUserName" resultType="String">
+		SELECT id FROM user
+	</select>
+
 </mapper>
