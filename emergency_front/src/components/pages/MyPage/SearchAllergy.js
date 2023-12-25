@@ -58,6 +58,7 @@ const MakeSelect = () => {
       .then(data => {
         // 서버로부터의 응답 처리
         console.log('Success:', data);
+        alert("등록 완료!")
       })
       .catch(error => {
         console.error('Error:', error);
