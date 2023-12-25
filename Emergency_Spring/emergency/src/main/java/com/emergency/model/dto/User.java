@@ -10,6 +10,7 @@ public class User {
 	private String password;
 	private int height;
 	private int weight;
-	private String bloodtype;
+	private String bloodtypeABO;
+	private String bloodtypeRh;
 	private String guardianTel;
 }

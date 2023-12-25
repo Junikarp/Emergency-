@@ -6,9 +6,9 @@
 
 	<insert id="createUser" parameterType="User">
 		INSERT INTO user
-		(id, password, name, height, weight, bloodtype, guardianTel)
+		(id, password, name, height, weight, bloodtypeABO, bloodtypeRh, guardianTel)
 		VALUES
-		(#{id}, #{password}, #{name}, #{height}, #{weight}, #{bloodtype}, #{guardianTel})
+		(#{id}, #{password}, #{name}, #{height}, #{weight}, #{bloodtypeABO}, #{bloodtypeRh}, #{guardianTel})
 	</insert>
 
 	<update id="updateUser" parameterType="User">
