@@ -10,6 +10,7 @@ import EmergencyHP from "./components/pages/MyPage/EmergencyHP";
 import DiagnosisHX from "./components/pages/MyPage/DiagnosisHX";
 import MyPageDetail from "./components/pages/MyPage/MyPageDetail";
 import Login from "./components/User/Login";
+import SearchDisease from "../src/components/pages/MyPage/SearchDisease";
 
 const Main = () => {
   return (
@@ -27,6 +28,7 @@ const Main = () => {
           <Route path="emergencyhp" element={<EmergencyHP />} />
         </Route>
         <Route path="login" element={<Login />} />
+        <Route path="search" element={<SearchDisease />}/>
       </Routes>
     </Router>
   );

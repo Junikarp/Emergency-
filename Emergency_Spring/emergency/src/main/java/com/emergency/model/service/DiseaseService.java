@@ -1,8 +1,9 @@
 package com.emergency.model.service;
 
-import java.util.List;
-
 import com.emergency.model.dto.Disease;
+import com.emergency.model.dto.DiseaseCode;
+
+import java.util.List;
 
 public interface DiseaseService {
 
@@ -17,4 +18,7 @@ public interface DiseaseService {
 
 	// 질환 내역 가져오기
 	List<Disease> selectAllDisease(String userId, String category);
+
+	List<DiseaseCode> selectAllDiseaseCode();
+
 }

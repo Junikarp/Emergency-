@@ -15,4 +15,8 @@
 	<select id="selectAllDisease" parameterType="Map" resultType="Disease">
 		select * from disease where userId = #{userId} and category = #{category}
 	</select>
+
+	<select id="selectAllDiseaseCode" resultType="DiseaseCode">
+		select * from diseaseCode
+	</select>
 </mapper>

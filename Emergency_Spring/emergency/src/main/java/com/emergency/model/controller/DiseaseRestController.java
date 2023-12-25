@@ -1,22 +1,16 @@
 package com.emergency.model.controller;
 
-import java.util.List;
-
+import com.emergency.model.dto.Disease;
+import com.emergency.model.dto.DiseaseCode;
+import com.emergency.model.service.DiseaseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import com.emergency.model.dto.Disease;
-import com.emergency.model.service.DiseaseService;
+import java.net.http.HttpTimeoutException;
+import java.util.List;
 
 @RestController
 @RequestMapping("/disease-api")
@@ -63,6 +57,17 @@ public class DiseaseRestController {
 		} catch(Exception e) {
 			String errMsg = e.getMessage();
 			return new ResponseEntity<>(errMsg, HttpStatus.BAD_REQUEST);
+		}
+	}
+
+	@GetMapping("/mypage/selectAll")
+	public ResponseEntity<?> searchDiseaseAll() {
+		try {
+			List<DiseaseCode> list = diseaseService.selectAllDiseaseCode();
+			return new ResponseEntity<>(list, HttpStatus.OK);
+		} catch (Exception e) {
+			String errMsg = e.getMessage();
+			return new ResponseEntity<>(errMsg, HttpStatus.NOT_FOUND);
 		}
 	}
 }
