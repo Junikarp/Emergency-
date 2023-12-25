@@ -1,10 +1,11 @@
-// 인증관리 컴포넌트
 import { useState, useEffect } from "react";
-import jwt_decode, { jwtDecode } from "jwt-decode";
+import { jwtDecode } from "jwt-decode";
+import { useNavigate } from "react-router-dom"; // useHistory 대신 useNavigate 사용
 
 const AuthComponent = ({ token }) => {
   // 사용자 정보 담아주기
   const [userData, setUserData] = useState(null);
+  const navigate = useNavigate(); // useNavigate 훅 사용
 
   // 토큰이 바뀌거나 컴포넌트 뜰 때
   useEffect(() => {
@@ -33,10 +34,12 @@ const AuthComponent = ({ token }) => {
         if (response.ok) {
           const user = await response.json();
           setUserData(user);
+          // home으로 바꿔주기
+          navigate("/");
         } else {
           // 요청 실패
           console.error("인증실패");
-          console.log(token);
+          // console.log(token);
         }
       } catch (error) {
         console.log(error);
@@ -45,13 +48,9 @@ const AuthComponent = ({ token }) => {
     };
 
     fetchUserData();
-  }, [token, userData]); // 토큰 변경될 때마다 함수 다시 실행하기
+  }, [token, navigate]); // 토큰 변경될 때마다 함수 다시 실행하기
 
-  return (
-    <div>
-      {userData ? <h3>안녕하세요, {userData.name}님!</h3> : <h2>인증중</h2>}
-    </div>
-  );
+  return <></>;
 };
 
 export default AuthComponent;

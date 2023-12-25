@@ -10,6 +10,7 @@ import EmergencyHP from "./components/pages/MyPage/EmergencyHP";
 import DiagnosisHX from "./components/pages/MyPage/DiagnosisHX";
 import MyPageDetail from "./components/pages/MyPage/MyPageDetail";
 import Login from "./components/User/Login";
+import Register from "./components/User/Register";
 
 const Main = () => {
   return (
@@ -19,7 +20,11 @@ const Main = () => {
         <Route path="chatbot" element={<ChatBot />} />
         <Route path="firstaid" element={<FirstAid />} />
         <Route path="mypage">
-          <Route index element={<MyPage />} />
+          {/* 자꾸 홈에서 mypage로 갈 때 token이 undefined가 떠서 token바로 전달해주기 */}
+          <Route
+            index
+            element={<MyPage token={localStorage.getItem("token")} />}
+          />
           <Route path="mypagedetail" element={<MyPageDetail />} />
           <Route path="ouchandallergy" element={<OuchAndAllergy />} />
           <Route path="diagnosishx" element={<DiagnosisHX />} />
@@ -27,6 +32,7 @@ const Main = () => {
           <Route path="emergencyhp" element={<EmergencyHP />} />
         </Route>
         <Route path="login" element={<Login />} />
+        <Route path="register" element={<Register />} />
       </Routes>
     </Router>
   );

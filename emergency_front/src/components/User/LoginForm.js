@@ -39,8 +39,8 @@ const LoginForm = ({ onLogin }) => {
       if (response.ok) {
         // json으로 데이터 가져온다
         const result = await response.json();
-
-        //로그인 성공하면 상태 올리면서 토큰 전달
+        //로그인 성공하면 상태 올리면서 토큰 전달, user전달하기
+        console.log(result);
         onLogin(result["access-token"]);
       } else {
         console.error("로그인 실패");
