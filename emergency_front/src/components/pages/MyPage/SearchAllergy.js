@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import Select from 'react-select';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
 const MakeSelect = () => {
   const [selectedDisease, setSelectedDisease] = useState(null); // 선택된 알레르기 상태
+  const [selectedDate, setSelectedDate] = useState(new Date()); // 선택된 날짜 상태
   const [diseaseOptions, setDiseaseOptions] = useState([]); // 알레르기 옵션 목록 상태
 
   useEffect(() => {
@@ -15,7 +18,6 @@ const MakeSelect = () => {
           value: allergyName.aid,
           label: allergyName.aname
         }));
-        console.log(options)
         setDiseaseOptions(options); // 변환된 옵션 목록을 상태에 저장
       })
       .catch(error => console.error('Error fetching data:', error));
@@ -30,9 +32,15 @@ const MakeSelect = () => {
         placeholder="알레르기 원인을 선택하세요."
         options={diseaseOptions} // 질병 옵션 목록을 설정
       />
+      <p>날짜 선택</p>
+      <DatePicker
+        selected={selectedDate} // 선택된 날짜 상태를 값으로 설정
+        onChange={(date) => setSelectedDate(date)} // 선택된 날짜를 상태에 저장
+      />
       {selectedDisease && ( // 선택된 질병이 있을 때만 출력
         <div>
           <p>선택된 알레르기: {selectedDisease.label}</p>
+          <p>선택된 날짜: {selectedDate.toLocaleDateString()}</p>
         </div>
       )}
     </>
