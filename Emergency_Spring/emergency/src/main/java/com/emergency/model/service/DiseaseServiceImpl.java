@@ -2,6 +2,7 @@ package com.emergency.model.service;
 
 import java.util.List;
 
+import com.emergency.model.dto.AllergyName;
 import com.emergency.model.dto.DiseaseCode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -38,6 +39,11 @@ public class DiseaseServiceImpl implements DiseaseService {
 	@Override
 	public List<DiseaseCode> selectAllDiseaseCode() {
 		return diseaseDao.selectAllDiseaseCode();
+	}
+
+	@Override
+	public List<AllergyName> selectAllAllergyName() {
+		return diseaseDao.selectAllAllergyName();
 	}
 
 }

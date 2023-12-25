@@ -1,5 +1,6 @@
 package com.emergency.model.service;
 
+import com.emergency.model.dto.AllergyName;
 import com.emergency.model.dto.Disease;
 import com.emergency.model.dto.DiseaseCode;
 
@@ -21,4 +22,5 @@ public interface DiseaseService {
 
 	List<DiseaseCode> selectAllDiseaseCode();
 
+	List<AllergyName> selectAllAllergyName();
 }

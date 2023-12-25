@@ -1,5 +1,6 @@
 package com.emergency.model.controller;
 
+import com.emergency.model.dto.AllergyName;
 import com.emergency.model.dto.Disease;
 import com.emergency.model.dto.DiseaseCode;
 import com.emergency.model.service.DiseaseService;
@@ -64,6 +65,17 @@ public class DiseaseRestController {
 	public ResponseEntity<?> searchDiseaseAll() {
 		try {
 			List<DiseaseCode> list = diseaseService.selectAllDiseaseCode();
+			return new ResponseEntity<>(list, HttpStatus.OK);
+		} catch (Exception e) {
+			String errMsg = e.getMessage();
+			return new ResponseEntity<>(errMsg, HttpStatus.NOT_FOUND);
+		}
+	}
+
+	@GetMapping("mypage/selectAllergy")
+	public ResponseEntity<?> selectAllergy() {
+		try {
+			List<AllergyName> list = diseaseService.selectAllAllergyName();
 			return new ResponseEntity<>(list, HttpStatus.OK);
 		} catch (Exception e) {
 			String errMsg = e.getMessage();

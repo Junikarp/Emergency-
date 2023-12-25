@@ -1,5 +1,6 @@
 package com.emergency.model.dao;
 
+import com.emergency.model.dto.AllergyName;
 import com.emergency.model.dto.Disease;
 import com.emergency.model.dto.DiseaseCode;
 
@@ -20,4 +21,6 @@ public interface DiseaseDao {
 
 	// 질환 목록 모두 가져오기
 	List<DiseaseCode> selectAllDiseaseCode();
+
+	List<AllergyName> selectAllAllergyName();
 }

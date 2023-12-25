@@ -19,4 +19,8 @@
 	<select id="selectAllDiseaseCode" resultType="DiseaseCode">
 		select * from diseaseCode
 	</select>
+
+	<select id="selectAllAllergyName" resultType="AllergyName">
+		select * from allergyName
+	</select>
 </mapper>
