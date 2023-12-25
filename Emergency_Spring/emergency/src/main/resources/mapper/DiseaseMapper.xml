@@ -4,8 +4,8 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.emergency.model.dao.DiseaseDao">
 	<insert id="insertDisease" parameterType="Disease">
-		insert into disease (userId, category, value)
-		values (#{userId}, #{category}, #{value})
+		insert into disease (userId, category, value, diseaseDate)
+		values (#{userId}, #{category}, #{value}, #{diseaseDate})
 	</insert>
 	
 	<delete id="deleteDisease" parameterType="int">

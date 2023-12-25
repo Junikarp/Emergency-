@@ -9,4 +9,5 @@ public class Disease {
 	private int diseaseId;
 	private String category;
 	private String value;
+	private String diseaseDate;
 }
