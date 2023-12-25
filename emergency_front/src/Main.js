@@ -11,6 +11,7 @@ import DiagnosisHX from "./components/pages/MyPage/DiagnosisHX";
 import MyPageDetail from "./components/pages/MyPage/MyPageDetail";
 import Login from "./components/User/Login";
 import SearchDisease from "../src/components/pages/MyPage/SearchDisease";
+import SearchAllergy from "../src/components/pages/MyPage/SearchAllergy";
 import Register from "./components/User/Register";
 
 const Main = () => {
@@ -34,6 +35,7 @@ const Main = () => {
         </Route>
         <Route path="login" element={<Login />} />
         <Route path="search" element={<SearchDisease />}/>
+        <Route path="allergy" element={<SearchAllergy />}/>
         <Route path="register" element={<Register />} />
       </Routes>
     </Router>
