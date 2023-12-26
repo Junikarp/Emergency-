@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import LoginForm from "./LoginForm";
 import MyPage from "../pages/MyPage/MyPage"; // MyPage 컴포넌트를 import
 import { useNavigate } from "react-router-dom";
+import FooterNav from "../FooterNav";
 const Login = () => {
   const [token, setToken] = useState(null);
   //사용자 정보 받아올것
@@ -29,6 +30,7 @@ const Login = () => {
       ) : (
         <div>
           <LoginForm onLogin={handleLogin} />
+          <FooterNav />
         </div>
       )}
     </div>

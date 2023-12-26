@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import RegisterForm from "./RegistForm";
 import { useNavigate } from "react-router-dom";
+import FooterNav from "../FooterNav";
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -105,13 +106,18 @@ const Register = () => {
 
   return (
     <div>
-      <RegisterForm
-        formData={formData}
-        pwMsg={pwMsg}
-        pwCheckMsg={pwCheckMsg}
-        handleChange={handleChange}
-        handleSubmit={handleSubmit}
-      />
+      <div>
+        <RegisterForm
+          formData={formData}
+          pwMsg={pwMsg}
+          pwCheckMsg={pwCheckMsg}
+          handleChange={handleChange}
+          handleSubmit={handleSubmit}
+        />
+      </div>
+      <div>
+        <FooterNav />
+      </div>
     </div>
   );
 };

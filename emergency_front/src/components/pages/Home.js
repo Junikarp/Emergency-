@@ -15,12 +15,24 @@ function Home() {
   }, []);
 
   //로그아웃
-  const handleLogout = () => {
-    //로그아웃 누르면 토큰 삭제
-    localStorage.removeItem("token");
-    //홈으로 이동
-    navigate("/");
-    setIsLogin(false);
+  const handleLogout = async () => {
+    try {
+      const response = await fetch(`http://localhost:8080/api/logout`, {
+        method: "GET",
+        credentials: "same-origin",
+      });
+      if (response.ok) {
+        //로그아웃 누르면 토큰 삭제
+        localStorage.removeItem("token");
+        setIsLogin(false);
+        // //홈으로 이동
+        navigate("/");
+      } else {
+        console.error("로그아웃 실패");
+      }
+    } catch (error) {
+      console.error("에러남", error);
+    }
   };
 
   return (
