@@ -4,12 +4,8 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
 const MakeSelect = () => { // 선택된 질병 상태
-  const [disease, setDisease] = useState({
-    userId: "ssafy",
-    category: "ulDisease",
-    value: null,
-    diseaseDate: new Date()
-  }); // 선택된 날짜 상태
+  const [selectedDisease, setSelectedDisease] = useState(null);
+  const [selectedDate, setSelectedDate] = useState(new Date());
   const [diseaseOptions, setDiseaseOptions] = useState([]); // 질병 옵션 목록 상태
 
   useEffect(() => {
@@ -27,15 +23,29 @@ const MakeSelect = () => { // 선택된 질병 상태
       .catch(error => console.error('Error fetching data:', error));
   }, []); // 빈 배열을 두 번째 인자로 전달하여 한 번만 실행되도록 함
 
-  const handleDiseaseChange = selectedDisease => {
-    setDisease({ ...disease, value: selectedDisease });
+  const handleDiseaseChange = selectedOption => {
+    setSelectedDisease(selectedOption);
   };
 
-  const handleDateChange = selectedDate => {
-    setDisease({ ...disease, diseaseDate: selectedDate });
+  const handleDateChange = date => {
+    setSelectedDate(date);
   };
 
   const handleSave = () => {
+
+    const year = selectedDate.getFullYear();
+    const month = String(selectedDate.getMonth() + 1).padStart(2, '0');
+    const day = String(selectedDate.getDate()).padStart(2, '0');
+
+    const formattedDate = `${year}-${month}-${day}`;
+
+    const disease = {
+      userId: "ssafy",
+      category: "ulDisease",
+      value: selectedDisease.label,
+      diseaseDate: formattedDate
+    };
+
     fetch('http://localhost:8080/disease-api/mypage', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -55,21 +65,21 @@ const MakeSelect = () => { // 선택된 질병 상태
     <>
       <p>질병 선택</p>
       <Select
-        value={disease.value} // 선택된 질병 상태를 값으로 설정
+        value={selectedDisease} // 선택된 질병 상태를 값으로 설정
         onChange={handleDiseaseChange} // 선택된 질병을 상태에 저장
         placeholder="질병을 선택하세요."
         options={diseaseOptions} // 질병 옵션 목록을 설정
       />
       <p>날짜 선택</p>
       <DatePicker
-        selected={disease.diseaseDate} // 선택된 날짜 상태를 값으로 설정
+        selected={selectedDate} // 선택된 날짜 상태를 값으로 설정
         onChange={handleDateChange} // 선택된 날짜를 상태에 저장
       />
       <button onClick={handleSave}>저장</button>
-      {disease.value && ( // 선택된 질병이 있을 때만 출력
+      {selectedDisease && ( // 선택된 질병이 있을 때만 출력
         <div>
-          <p>선택된 질병: {disease.value.label}</p>
-          <p>선택된 날짜: {disease.diseaseDate.toLocaleDateString()}</p>
+          <p>선택된 질병: {selectedDate.label}</p>
+          <p>선택된 날짜: {selectedDate.toLocaleDateString()}</p>
         </div>
       )}
     </>
