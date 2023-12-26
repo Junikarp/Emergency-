@@ -2,11 +2,13 @@ import FooterNav from "../FooterNav";
 import EmergencyMap from "../api/EmergencyMap";
 import Category from "../api/Category";
 import SearchInput from "../api/SearchInput";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Home() {
   //로그인 상태 저장
   const [isLogin, setIsLogin] = useState(false);
+  const [order, setOrder] = useState("emergency");
   const navigate = useNavigate();
   //로그인 됐는지 토큰 가져와서 상태 확인
   useEffect(() => {
@@ -34,6 +36,9 @@ function Home() {
     } catch (error) {
       console.error("에러남", error);
     }
+  };
+  const handleButtonClick = (component) => {
+    setOrder(component);
   };
 
   const renderComponent = () => {
