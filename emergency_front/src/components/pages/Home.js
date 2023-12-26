@@ -5,9 +5,35 @@ import SearchInput from "../api/SearchInput";
 import React, { useState } from "react";
 
 function Home() {
-  const [order, setOrder] = useState("emergency");
-  const handleButtonClick = (component) => {
-    setOrder(component);
+  //로그인 상태 저장
+  const [isLogin, setIsLogin] = useState(false);
+  const navigate = useNavigate();
+  //로그인 됐는지 토큰 가져와서 상태 확인
+  useEffect(() => {
+    const existToken = localStorage.getItem("token");
+    //토큰 있으면 로그인 ㅅ아태
+    setIsLogin(existToken);
+  }, []);
+
+  //로그아웃
+  const handleLogout = async () => {
+    try {
+      const response = await fetch(`http://localhost:8080/api/logout`, {
+        method: "GET",
+        credentials: "same-origin",
+      });
+      if (response.ok) {
+        //로그아웃 누르면 토큰 삭제
+        localStorage.removeItem("token");
+        setIsLogin(false);
+        // //홈으로 이동
+        navigate("/");
+      } else {
+        console.error("로그아웃 실패");
+      }
+    } catch (error) {
+      console.error("에러남", error);
+    }
   };
 
   const renderComponent = () => {

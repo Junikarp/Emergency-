@@ -1,7 +1,9 @@
 import { useState } from "react";
 import LoginForm from "./LoginForm";
 import AuthComponent from "./AuthComponent";
-
+import MyPage from "../pages/MyPage/MyPage"; // MyPage 컴포넌트를 import
+import { useNavigate } from "react-router-dom";
+import FooterNav from "../FooterNav";
 const Login = () => {
   const [token, setToken] = useState(null);
 
@@ -16,6 +18,7 @@ const Login = () => {
       ) : (
         <div>
           <LoginForm onLogin={handleLogin} />
+          <FooterNav />
         </div>
       )}
     </div>

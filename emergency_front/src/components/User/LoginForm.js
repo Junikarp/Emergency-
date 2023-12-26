@@ -1,5 +1,7 @@
 import "./LoginForm.css";
 import { useState } from "react";
+import { Link } from "react-router-dom";
+
 const LoginForm = ({ onLogin }) => {
   //입력한 값 상태 저장
   const [credentials, setCredentials] = useState({
@@ -59,6 +61,9 @@ const LoginForm = ({ onLogin }) => {
         />
         <button type="submit" onClick={handleSubmit}>
           로그인
+        </button>
+        <button className="register-button">
+          <Link to="/register">회원가입</Link>
         </button>
       </form>
     </div>
