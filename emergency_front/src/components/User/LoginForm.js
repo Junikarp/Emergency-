@@ -28,10 +28,7 @@ const LoginForm = ({ onLogin }) => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-          id: credentials.id,
-          password: credentials.password,
-        }),
+        body: JSON.stringify(credentials),
       });
 
       console.log(credentials);
@@ -39,8 +36,8 @@ const LoginForm = ({ onLogin }) => {
       if (response.ok) {
         // json으로 데이터 가져온다
         const result = await response.json();
-        //로그인 성공하면 상태 올리면서 토큰 전달, user전달하기
-        console.log(result);
+
+        //로그인 성공하면 상태 올리면서 토큰 전달
         onLogin(result["access-token"]);
       } else {
         console.error("로그인 실패");

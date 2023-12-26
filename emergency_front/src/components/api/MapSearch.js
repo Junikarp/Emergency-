@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./MapSearch.css";
-
+// 검색 컴포넌트
 const MapSearch = ({ searchPlace }) => {
   const { kakao } = window; // 함수형 컴포넌트에서는 kakao script 인지를 못하므로 window에서 kakao 객체 뽑아서 써야함
   const [location, setLocation] = useState(null);

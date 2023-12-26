@@ -1,50 +1,43 @@
-import { useEffect, useState } from "react";
 import FooterNav from "../FooterNav";
+import EmergencyMap from "../api/EmergencyMap";
+import Category from "../api/Category";
 import SearchInput from "../api/SearchInput";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useState } from "react";
 
 function Home() {
-  //로그인 상태 저장
-  const [isLogin, setIsLogin] = useState(false);
-  const navigate = useNavigate();
-  //로그인 됐는지 토큰 가져와서 상태 확인
-  useEffect(() => {
-    const existToken = localStorage.getItem("token");
-    //토큰 있으면 로그인 ㅅ아태
-    setIsLogin(existToken);
-  }, []);
-
-  //로그아웃
-  const handleLogout = () => {
-    //로그아웃 누르면 토큰 삭제
-    localStorage.removeItem("token");
-    //홈으로 이동
-    navigate("/");
-    setIsLogin(false);
+  const [order, setOrder] = useState("emergency");
+  const handleButtonClick = (component) => {
+    setOrder(component);
   };
 
+  const renderComponent = () => {
+    switch (order) {
+      case "search":
+        return <SearchInput />;
+      case "category":
+        return <Category />;
+      case "emergency":
+        return <EmergencyMap />;
+    }
+  };
   return (
     <>
       <div>
-        <SearchInput />
+        <button onClick={() => handleButtonClick("search")}>
+          병원/약국검색
+        </button>
+        <button onClick={() => handleButtonClick("emergency")}>
+          응급실 현황
+        </button>
+        <button onClick={() => handleButtonClick("category")}>
+          카테고리 테스트
+        </button>
       </div>
       <div>
-        <FooterNav />
-        <h2>홈이유</h2>
-        {isLogin ? (
-          // 로그인 상태일 때 로그아웃 버튼 렌더링
-          <button onClick={handleLogout}>로그아웃</button>
-        ) : (
-          // 로그인 상태가 아닐 때 로그인 버튼 렌더링
-          <>
-            <Link to="/login">
-              <button>로그인</button>
-            </Link>
-            <Link to="/register">
-              <button>회원가입</button>
-            </Link>
-          </>
-        )}
+        <div>{renderComponent()}</div>
+        <div>
+          <FooterNav />
+        </div>
       </div>
     </>
   );

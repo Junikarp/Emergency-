@@ -1,27 +1,49 @@
 import React, { useEffect, useState } from "react";
-import xmlToJson from "./xmlToJson";
+import { xmlToJson } from "./util";
+import { parseAdd } from "./util";
+import TestMap from "./TestMap";
+// 응급실 데이터 받아오고 출력함 (emergencyMap에서 centerAddr 가져옴)
+function EmergencyRoom({ centerAddr }) {
+  const parsedAddress = parseAdd(centerAddr);
+  // parsedAddress가 정의되었는지 확인 후 매핑
+  // console.log(parsedAddress);
+  // console.log(centerAddr);
 
-function EmergencyRoom() {
-  const BASE_URL =
-    "https://apis.data.go.kr/B552657/ErmctInfoInqireService/getEmrrmRltmUsefulSckbdInfoInqire";
-  const SiDo = encodeURIComponent("대전광역시");
-  const SiGunGu = encodeURIComponent("중구");
-  const E_KEY =
-    "ykFoRIg764raDV3z%2FboRSWMVbD%2FV3uV6ER3eaRTLsnQWkqTFXp%2BzLI2jAoaC8nUJG3iHIDthLfrAAAqcgCc1Cg%3D%3D";
-  const apiUrl = `${BASE_URL}?serviceKey=${E_KEY}&STAGE1=${SiDo}&STAGE2=${SiGunGu}&pageNo=1&numOfRows=10`;
   const [hospitalData, setHospitalData] = useState([]);
-
-  const processData = (data) => {
+  const [hospitalMsgData, setHospitalMsgData] = useState([]);
+  function processData(data) {
     return data;
-  };
+  }
+  function formatUpdateTime(hvidate) {
+    const year = hvidate.slice(0, 4);
+    const month = hvidate.slice(4, 6);
+    const day = hvidate.slice(6, 8);
+    const hour = hvidate.slice(8, 10);
+    const minute = hvidate.slice(10, 12);
+    const second = hvidate.slice(12, 14);
+
+    return `${year}-${month}-${day}(${hour}:${minute}:${second})`;
+  }
 
   useEffect(() => {
     const getXMLfromAPI = async () => {
       try {
+        // 위치 받아온 후에 apiUrl 생성
+        const BASE_URL =
+          "https://apis.data.go.kr/B552657/ErmctInfoInqireService/getEmrrmRltmUsefulSckbdInfoInqire";
+        const BASE_ADDR_URL =
+          "http://apis.data.go.kr/B552657/ErmctInfoInqireService/getEmrrmSrsillDissMsgInqire";
+        const { SiDo, SiGunGu } = parseAdd(centerAddr);
+        const encodedSiDo = encodeURIComponent(SiDo);
+        const encodedSiGunGu = encodeURIComponent(SiGunGu);
+        const E_KEY =
+          "ykFoRIg764raDV3z%2FboRSWMVbD%2FV3uV6ER3eaRTLsnQWkqTFXp%2BzLI2jAoaC8nUJG3iHIDthLfrAAAqcgCc1Cg%3D%3D";
+        const apiUrl = `${BASE_URL}?serviceKey=${E_KEY}&STAGE1=${encodedSiDo}&STAGE2=${encodedSiGunGu}&pageNo=1&numOfRows=10`;
+        const apiAddrUrl = `${BASE_ADDR_URL}?serviceKey=${E_KEY}&Q0=${encodedSiDo}&Q1=${encodedSiGunGu}&pageNo=1&numOfRows=10`;
+        // apiUrl을 이용해서 데이터 요청
         const response = await fetch(apiUrl);
         const xmlString = await response.text(); // 해석할 xml문자열.
         const XmlNode = new DOMParser().parseFromString(xmlString, "text/xml"); // xml로 변형
-
         // import해온 xmlToJson함수 안에 변형한 XmlNode를 넣어준다. 그러면 json객체를 return해준다.
         const {
           response: {
@@ -33,24 +55,78 @@ function EmergencyRoom() {
         // 데이터를 적절히 처리한 후 setHospitalData에 전달
         const processedData = processData(item);
         setHospitalData(processedData);
+        // -----------------------------------------------
+        const response_msg = await fetch(apiAddrUrl);
+        const xmlStringMsg = await response_msg.text();
+        const XmlNode_msg = new DOMParser().parseFromString(
+          xmlStringMsg,
+          "text/xml"
+        );
+        const {
+          response: {
+            body: {
+              items: { item: item_msg },
+            },
+          },
+        } = xmlToJson(XmlNode_msg);
+        const processedMsgData = processData(item_msg);
+        setHospitalMsgData(processedMsgData);
+        console.log(hospitalData.dutyName);
+        console.log(hospitalMsgData.dutyAddr);
       } catch (error) {
         console.log(error);
       }
     };
 
     getXMLfromAPI();
-  }, []); // 빈 배열은 컴포넌트가 마운트될 때 한 번만 실행
+  }, [centerAddr]); // 빈 배열은 컴포넌트가 마운트될 때 한 번만 실행
 
   return (
     <>
-      {hospitalData.map((hospital, index) => (
-        <div key={index}>
-          <p>병원명: {hospital.dutyName}</p>
-          <p>병원 전화번호: {hospital.dutyTel3}</p>
-          <p>현재 가용가능 응급실 수: {hospital.hvec}</p>
-          {/* 다른 필요한 정보들을 추가로 표시할 수 있습니다. */}
-        </div>
-      ))}
+      {Array.isArray(hospitalData)
+        ? hospitalData.map((hospital, index) => (
+            <div key={index}>
+              <p>업데이트 시간: {formatUpdateTime(hospitalData.hvidate)}</p>
+              <p>병원명: {hospital.dutyName}</p>
+              <p>병원 전화번호: {hospital.dutyTel3}</p>
+              <p>현재 가용가능 응급실 수: {hospital.hvec}</p>
+              <hr></hr>
+              {hospitalMsgData.map(
+                (msgItem) =>
+                  // dutyName이 일치하는 경우 해당 응급실의 주소와 메시지 출력
+                  hospital.dutyName === msgItem.dutyName && (
+                    <div key={msgItem.rnum}>
+                      <p>응급실 주소: {msgItem.dutyAddr}</p>
+                      <p>응급실 메시지: {msgItem.symBlkMsg}</p>
+                    </div>
+                  )
+              )}
+            </div>
+          ))
+        : hospitalData && (
+            <div>
+              <p>업데이트 시간: {formatUpdateTime(hospitalData.hvidate)}</p>
+              <p>병원명: {hospitalData.dutyName}</p>
+              <p>병원 전화번호: {hospitalData.dutyTel3}</p>
+              <p>현재 가용가능 응급실 수: {hospitalData.hvec}</p>
+              <p>{hospitalMsgData.dutyAddr}</p>
+              <hr></hr>
+              {hospitalMsgData.map(
+                (msgItem) =>
+                  // dutyName이 일치하는 경우 해당 응급실의 주소와 메시지 출력
+                  hospitalData.dutyName === msgItem.dutyName && (
+                    <div key={msgItem.rnum}>
+                      <p>응급실 주소: {msgItem.dutyAddr}</p>
+                      <p>응급실 메시지: {msgItem.symBlkMsg}</p>
+                    </div>
+                  )
+              )}
+            </div>
+          )}
+      <TestMap
+        handleHospitalData={hospitalData}
+        handleHospitalAddrData={hospitalMsgData}
+      />
     </>
   );
   // hospitalData를 사용하여 렌더링하는 로직 추가
