@@ -15,6 +15,16 @@ const MyPageDetailUpdate = () => {
     guardianTel: "",
   });
   const navigate = useNavigate();
+  const [pwMsg, setPwMsg] = useState("");
+  const [pwCheckMsg, setPwCheckMsg] = useState("");
+
+  const validatePw = (password) => {
+    console.log(password);
+    return password
+      .toLowerCase()
+      .match(/^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,25}$/);
+    // setPassword(password);
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -49,10 +59,24 @@ const MyPageDetailUpdate = () => {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setUserInfo((prevUserInfo) => ({
-      ...prevUserInfo,
-      [name]: value || "",
-    }));
+    // 비밀번호 유효 검사
+    if (name === "password") {
+      setUserInfo((prevData) => ({ ...prevData, [name]: value }));
+
+      if (!validatePw(value)) {
+        setPwMsg("영문, 숫자, 특수기호 조합으로 8자리 이상 입력해주세요");
+      } else {
+        setPwMsg("");
+      }
+    } else if (name === "passwordCheck") {
+      // 비밀번호 확인 일치 여부 검사
+      setUserInfo((prevData) => ({ ...prevData, [name]: value }));
+
+      const isPasswordMatch = value === userInfo.password;
+      setPwCheckMsg(isPasswordMatch ? "" : "비밀번호가 일치하지 않습니다.");
+    } else {
+      setUserInfo((prevData) => ({ ...prevData, [name]: value }));
+    }
   };
 
   const handleSubmit = async (e) => {
@@ -92,7 +116,12 @@ const MyPageDetailUpdate = () => {
               disabled // 수정 불가능한 상태로 설정
             />
             <label htmlFor="name">이름</label>
-            <input type="text" name="name" onChange={handleInputChange} />
+            <input
+              type="text"
+              name="name"
+              onChange={handleInputChange}
+              value={userInfo.name}
+            />
             <label htmlFor="password">비밀번호</label>
             <input
               value={userInfo.password}
@@ -100,17 +129,28 @@ const MyPageDetailUpdate = () => {
               name="password"
               onChange={handleInputChange}
             />
+            <p className="message">{pwMsg}</p>
             <label htmlFor="passwordCheck">비밀번호 확인</label>
             <input
-              value={userInfo.passwordCheck}
               type="password"
               name="passwordCheck"
               onChange={handleInputChange}
             />
+            <p className="message">{pwCheckMsg}</p>
             <label htmlFor="height">신장</label>
-            <input type="number" name="height" onChange={handleInputChange} />
+            <input
+              type="number"
+              value={userInfo.height}
+              name="height"
+              onChange={handleInputChange}
+            />
             <label htmlFor="weight">몸무게</label>
-            <input type="number" name="weight" onChange={handleInputChange} />
+            <input
+              type="number"
+              value={userInfo.weight}
+              name="weight"
+              onChange={handleInputChange}
+            />
             <p>
               혈액형 {userInfo.bloodtypeRh} {userInfo.bloodtypeABO}
             </p>
@@ -120,6 +160,7 @@ const MyPageDetailUpdate = () => {
               name="guardianTel"
               pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}"
               onChange={handleInputChange}
+              value={userInfo.guardianTel}
             />
             <button type="submit">수정 완료</button>
           </form>

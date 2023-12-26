@@ -4,9 +4,7 @@ import MyPage from "./components/pages/MyPage/MyPage";
 import Home from "./components/pages/Home";
 import ChatBot from "./components/pages/ChatBot/ChatBot";
 import FirstAid from "./components/pages/FirstAid/FirstAid";
-import OuchAndAllergy from "./components/pages/MyPage/OuchAndAllergy";
 import TakingMedicine from "./components/pages/MyPage/TakingMedicine";
-import EmergencyHP from "./components/pages/MyPage/EmergencyHP";
 import DiagnosisHX from "./components/pages/MyPage/DiagnosisHX";
 import MyPageDetail from "./components/pages/MyPage/MyPageDetail";
 import Login from "./components/User/Login";
@@ -32,14 +30,12 @@ const Main = () => {
             <Route index element={<MyPageDetail />} />
             <Route path="update" element={<MyPageDetailUpdate />} />
           </Route>
-          <Route path="ouchandallergy" element={<OuchAndAllergy />} />
+          <Route path="disease" element={<SearchDisease />} />
           <Route path="diagnosishx" element={<DiagnosisHX />} />
           <Route path="takingmedicine" element={<TakingMedicine />} />
-          <Route path="emergencyhp" element={<EmergencyHP />} />
+          <Route path="allergy" element={<SearchAllergy />} />
         </Route>
         <Route path="login" element={<Login />} />
-        <Route path="search" element={<SearchDisease />} />
-        <Route path="allergy" element={<SearchAllergy />} />
         <Route path="register" element={<Register />} />
       </Routes>
     </Router>
