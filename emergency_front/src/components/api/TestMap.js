@@ -93,9 +93,16 @@ function TestMap({ handleHospitalData, handleHospitalAddrData }) {
               hasHvec = findHospital
                 ? `<div><h2>${findHospital.dutyName}</h2><div><h3>${findHospital.hvec}</h3></div>`
                 : `<div>"에러떠 수고"</div>`;
-            } else {
+            } else if (
+              handleHospitalData &&
+              handleHospitalData.dutyName &&
+              handleHospitalData.hvec
+            ) {
               hasHvec = `<div><h2>병원명: ${handleHospitalData.dutyName}</h2><div><h3>현재 가용가능 응급실 수:${handleHospitalData.hvec}</h3></div>`;
+            } else {
+              hasHvec = "<div>Error: dutyName or hvec not available</div>";
             }
+
             const content = `<div><div>${hasHvec}</div><div>${msgItem.symBlkMsg}</div></div>`;
 
             // 마커 생성하고 지도에 표시

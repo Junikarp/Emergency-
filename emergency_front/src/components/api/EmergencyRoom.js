@@ -72,7 +72,6 @@ function EmergencyRoom({ centerAddr }) {
         const processedMsgData = processData(item_msg);
         setHospitalMsgData(processedMsgData);
         console.log(hospitalData.dutyName);
-        console.log(hospitalMsgData.dutyAddr);
       } catch (error) {
         console.log(error);
       }
