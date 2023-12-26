@@ -13,7 +13,7 @@
 
 	<update id="updateUser" parameterType="User">
 		UPDATE user
-		SET password = #{password}, height = #{height}, weight = #{weight}, guardianTel = #{guardianTel}
+		SET name = #{name}, password = #{password}, height = #{height}, weight = #{weight}, guardianTel = #{guardianTel}
 		WHERE
 		id = #{id}
 	</update>
