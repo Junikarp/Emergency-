@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import FooterNav from "../FooterNav";
 
 function TestMap({ handleHospitalData, handleHospitalAddrData }) {
   const { kakao } = window; // 함수형 컴포넌트에서는 kakao script 인지를 못하므로 window에서 kakao 객체 뽑아서 써야함
@@ -67,7 +68,7 @@ function TestMap({ handleHospitalData, handleHospitalAddrData }) {
     var mapContainer = document.getElementById("map");
     var mapOption = {
       center: location || new kakao.maps.LatLng(37.566826, 126.9786567), // 기본 좌표 설정
-      level: 6,
+      level: 4,
     };
 
     var map = new kakao.maps.Map(mapContainer, mapOption);
@@ -236,23 +237,25 @@ function TestMap({ handleHospitalData, handleHospitalAddrData }) {
   ]);
 
   return (
-    <div className="map_wrap">
-      <div
-        id="map"
-        style={{
-          width: "100%",
-          height: "100%",
-          position: "relative",
-          overflow: "hidden",
-        }}
-      ></div>
-      <div id="menu_wrap" className="bg_white">
-        <div className="option">
+    <>
+      <div className="map_wrap">
+        <div
+          id="map"
+          style={{
+            maxWidth: "720px",
+            minHeight: "720px",
+            position: "relative",
+            overflow: "hidden",
+          }}
+        ></div>
+        <div id="menu_wrap" className="bg_white">
+          <div className="option">
+            <div></div>
+          </div>
           <div></div>
         </div>
-        <div></div>
       </div>
-    </div>
+    </>
   );
 }
 

@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import EmergencyRoom from "./EmergencyRoom";
+import FooterNav from "../FooterNav";
 // 지도 띄울 거 대비한 현재 위치 갖고오기
 function EmergencyMap() {
   const { kakao } = window; // 함수형 컴포넌트에서는 kakao script 인지를 못하므로 window에서 kakao 객체 뽑아서 써야함
   const [location, setLocation] = useState(null);
   const [centerAddr, setCenterAddr] = useState("");
   const [hospitalData, setHospitalData] = useState([]);
-
   const updateHospitalData = (data) => {
     setHospitalData(data);
   };
@@ -146,31 +146,39 @@ function EmergencyMap() {
   }, [location, hospitalData]);
 
   return (
-    <div className="map_wrap">
+    <>
       <div
-        id="map"
+        className="map_wrap"
         style={{
           width: "100%",
-          height: "100%",
-          position: "relative",
-          overflow: "hidden",
+          height: "70vh",
         }}
-      ></div>
-      <div id="menu_wrap" className="bg_white">
-        <div className="option">
-          <div></div>
-        </div>
-        <hr />
-        <div className="hAddr">
-          <div className="title">지도중심기준 행정동 주소정보</div>
-          <div id="centerAddr">{centerAddr}</div>
-        </div>
-        <hr />
-        <div>
-          <EmergencyRoom centerAddr={centerAddr} />
+      >
+        <div
+          id="map"
+          style={{
+            width: "100%",
+            height: "100%",
+            position: "relative",
+            overflow: "hidden",
+          }}
+        ></div>
+        <div id="menu_wrap" className="bg_white">
+          <div className="option">
+            <div></div>
+          </div>
+          <hr />
+          <div className="hAddr">
+            <div className="title">지도중심기준 행정동 주소정보</div>
+            <div id="centerAddr">{centerAddr}</div>
+          </div>
+          <hr />
+          <div>
+            <EmergencyRoom centerAddr={centerAddr} />
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

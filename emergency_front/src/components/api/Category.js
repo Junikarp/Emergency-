@@ -250,7 +250,13 @@ function Category() {
   }, [location]);
 
   return (
-    <div className="map_wrap">
+    <div
+      className="map_wrap"
+      style={{
+        width: "100%",
+        height: "70vh",
+      }}
+    >
       <div
         id="map"
         style={{

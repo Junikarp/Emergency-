@@ -110,15 +110,22 @@ function EmergencyRoom({ centerAddr }) {
               <p>현재 가용가능 응급실 수: {hospitalData.hvec}</p>
               <p>{hospitalMsgData.dutyAddr}</p>
               <hr></hr>
-              {hospitalMsgData.map(
-                (msgItem) =>
-                  // dutyName이 일치하는 경우 해당 응급실의 주소와 메시지 출력
-                  hospitalData.dutyName === msgItem.dutyName && (
-                    <div key={msgItem.rnum}>
-                      <p>응급실 주소: {msgItem.dutyAddr}</p>
-                      <p>응급실 메시지: {msgItem.symBlkMsg}</p>
-                    </div>
-                  )
+              {Array.isArray(hospitalMsgData) ? (
+                hospitalMsgData.map(
+                  (msgItem) =>
+                    // dutyName이 일치하는 경우 해당 응급실의 주소와 메시지 출력
+                    hospitalData.dutyName === msgItem.dutyName && (
+                      <div key={msgItem.rnum}>
+                        <p>응급실 주소: {msgItem.dutyAddr}</p>
+                        <p>응급실 메시지: {msgItem.symBlkMsg}</p>
+                      </div>
+                    )
+                )
+              ) : (
+                <div>
+                  <p>응급실 주소 : {hospitalMsgData.dutyAddr}</p>
+                  <p>응급실 메시지 : {hospitalMsgData.symBlkMsg}</p>
+                </div>
               )}
             </div>
           )}
