@@ -20,7 +20,7 @@ diseaseId INT PRIMARY KEY auto_increment,
 userId VARCHAR(50) NOT NULL,
 category VARCHAR(50),
 value VARCHAR(50),
-diseaseDate VARCHAR(50),
+diseaseDate date,
 FOREIGN KEY(userId) REFERENCES user(id)
 on delete cascade
 );
@@ -34,38 +34,38 @@ values ("dog2", "오건영", "1234", "110", "95", "B", "+", "010-3333-3333");
 insert into user (id, name, password, height, weight, bloodtypeABO, bloodtypeRh, guardianTel)
 values ("dog3", "최준호", "1234", "188", "65", "AB", "+", "010-5191-0172");
 
-insert into disease (userId, category, value)
-values ("dog2", "allergy", "땅콩");
-insert into disease (userId, category, value)
-values ("dog2", "ulDisease", "천식");
-insert into disease (userId, category, value)
-values ("dog2", "sideEffect", "각혈");
-insert into disease (userId, category, value)
-values ("dog2", "medication", "딸기맛물약");
-insert into disease (userId, category, value)
-values ("ssafy", "allergy", "꽃게");
-insert into disease (userId, category, value)
-values ("ssafy", "ulDisease", "위염");
-insert into disease (userId, category, value)
-values ("ssafy", "sideEffect", "기침");
-insert into disease (userId, category, value)
-values ("ssafy", "medication", "포도맛물약");
-insert into disease (userId, category, value)
-values ("dog", "allergy", "복숭아");
-insert into disease (userId, category, value)
-values ("dog", "ulDisease", "기흉");
-insert into disease (userId, category, value)
-values ("dog", "sideEffect", "어지럼증");
-insert into disease (userId, category, value)
-values ("dog", "medication", "누룽지맛물약");
-insert into disease (userId, category, value)
-values ("dog3", "allergy", "귤");
-insert into disease (userId, category, value)
-values ("dog3", "ulDisease", "온갖병");
-insert into disease (userId, category, value)
-values ("dog3", "sideEffect", "구토");
-insert into disease (userId, category, value)
-values ("dog3", "medication", "홍삼맛물약");
+insert into disease (userId, category, value,diseaseDate)
+values ("dog2", "allergy", "땅콩", "1998-09-24");
+insert into disease (userId, category, value,diseaseDate)
+values ("dog2", "ulDisease", "천식", "1998-09-24");
+insert into disease (userId, category, value,diseaseDate)
+values ("dog2", "sideEffect", "각혈", "1998-09-24");
+insert into disease (userId, category, value,diseaseDate)
+values ("dog2", "medication", "딸기맛물약", "1998-09-24");
+insert into disease (userId, category, value,diseaseDate)
+values ("ssafy", "allergy", "꽃게", "1998-09-24");
+insert into disease (userId, category, value,diseaseDate)
+values ("ssafy", "ulDisease", "위염", "1998-09-24");
+insert into disease (userId, category, value,diseaseDate)
+values ("ssafy", "sideEffect", "기침", "1998-09-24");
+insert into disease (userId, category, value,diseaseDate)
+values ("ssafy", "medication", "포도맛물약", "1998-09-24");
+insert into disease (userId, category, value,diseaseDate)
+values ("dog", "allergy", "복숭아", "1998-09-24");
+insert into disease (userId, category, value,diseaseDate)
+values ("dog", "ulDisease", "기흉", "1998-09-24");
+insert into disease (userId, category, value,diseaseDate)
+values ("dog", "sideEffect", "어지럼증", "1998-09-24");
+insert into disease (userId, category, value,diseaseDate)
+values ("dog", "medication", "누룽지맛물약", "1998-09-24");
+insert into disease (userId, category, value,diseaseDate)
+values ("dog3", "allergy", "귤", "1998-09-24");
+insert into disease (userId, category, value,diseaseDate)
+values ("dog3", "ulDisease", "온갖병", "1998-09-24");
+insert into disease (userId, category, value,diseaseDate)
+values ("dog3", "sideEffect", "구토", "1998-09-24");
+insert into disease (userId, category, value,diseaseDate)
+values ("dog3", "medication", "홍삼맛물약", "1998-09-24");
 
 CREATE TABLE diseaseCode(
 dId int auto_increment primary KEY ,
