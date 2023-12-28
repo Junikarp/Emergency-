@@ -1,0 +1,67 @@
+body {
+    background-color: #FFF5E0;
+}
+
+#main-con {
+    margin-left: 450px;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    height: 100vh; /* 화면 높이를 전체 화면으로 채우기 위해 추가 */
+}
+
+#name-box {
+    display: flex;
+    background-color: #BF3131;
+    width: 600px;
+    height: 90px;
+    border-radius: 20px;
+    margin-top: 30px;
+    margin-left: 450px;
+    justify-content: center;
+    align-content: center;
+    font-size: 50px;
+    /* 필요한 스타일 추가 */
+}
+
+#input-box {
+    display: flex;
+    flex-direction: row;
+    padding : 0;
+}
+
+#select {
+    width: 300px;
+    padding-right: 10px;
+}
+
+#main-con {
+    display: flex;
+    flex-direction: row;
+    width: 600px;
+    height :500px;
+    background-color: #F6E7D8;
+    justify-content: space-around; /* 내부 요소들을 가운데 정렬 */
+    border-radius: 30px;
+    margin-top: 20px;
+    /* 필요한 스타일 추가 */
+}
+
+.save {
+    height: 37px;
+    width: 60px;
+    background-color: aqua;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+
+.save:hover {
+    background-color: aquamarine;
+    cursor: pointer;
+}
+
+#picker {
+    border-radius: 7px;
+    height: 37px;
+    width:80px;
+}
