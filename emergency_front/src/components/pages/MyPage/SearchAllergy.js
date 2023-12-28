@@ -3,6 +3,8 @@ import Select from 'react-select';
 import DatePicker from 'react-datepicker';
 import FooterNav from "../../FooterNav";
 import { jwtDecode } from "jwt-decode";
+import allergyImg from "../../../assets/allergy.png"
+import deleteImg from "../../../assets/deleteAllergy.png"
 import 'react-datepicker/dist/react-datepicker.css';
 import './SearchAllergy.css'
 
@@ -73,6 +75,23 @@ const MakeSelect = () => {
     setSelectedDate(date);
   };
 
+  const handleDelete = async (diseaseId) => {
+    try {
+      const response = await fetch(`http://localhost:8080/disease-api/mypage/${diseaseId}`, {
+        method: 'DELETE',
+      });
+      if (response.ok) {
+        // 요청이 성공하면 deleted 상태를 업데이트합니다.
+        console.log('Delete successful');
+        window.location.reload();
+      } else {
+        console.error('Delete request failed');
+      }
+    } catch (error) {
+      console.error('Error deleting disease:', error);
+    }
+  };
+
   const handleSave = async () => {
     const year = selectedDate.getFullYear();
     const month = String(selectedDate.getMonth() + 1).padStart(2, '0');
@@ -98,6 +117,7 @@ const MakeSelect = () => {
       if (response.ok) {
         const data = await response.json();
         console.log('Save successful:', data);
+        window.location.reload();
         alert("등록 완료!");
       } else {
         console.error('Save failed:', response.statusText);
@@ -117,6 +137,10 @@ const MakeSelect = () => {
         {userInfo.name} 님 {/* 이름과 ID를 표시합니다. */}
       </div>
       <div id="main-con">
+        <div id="allergy-title">
+          <img src={allergyImg} id="allergyImg"></img>
+          <p>내 알레르기</p>
+        </div>
         <div id="input-box">
           <div>
             <p>알레르기 선택</p>
@@ -150,12 +174,12 @@ const MakeSelect = () => {
                 <tr key={index}>
                   <td>{item.value}</td>
                   <td>{item.diseaseDate}</td>
+                    <img src={deleteImg} id="deleteImg" onClick={() => handleDelete(item.diseaseId)} style={{ cursor: 'pointer' }} />
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
-
       </div>
       <div className="foot">
         <FooterNav />
