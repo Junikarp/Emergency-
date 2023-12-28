@@ -4,9 +4,10 @@ body {
 
 #main-con {
     margin-left: 450px;
-    padding: 0;
+    padding-top: 30px;
     display: flex;
-    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     height: 100vh; /* 화면 높이를 전체 화면으로 채우기 위해 추가 */
 }
 
@@ -32,16 +33,16 @@ body {
 
 #select {
     width: 300px;
+    height: 37px;
     padding-right: 10px;
 }
 
 #main-con {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     width: 600px;
     height :500px;
     background-color: #F6E7D8;
-    justify-content: space-around; /* 내부 요소들을 가운데 정렬 */
     border-radius: 30px;
     margin-top: 20px;
     /* 필요한 스타일 추가 */
@@ -65,3 +66,26 @@ body {
     height: 37px;
     width:80px;
 }
+
+#disease-list {
+    list-style-type: none;
+}
+
+#allergy-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#picker-button {
+    justify-content: center;
+    align-items: center;
+}
+
+#disease-table th, #disease-table td {
+    padding: 8px;
+    padding-left: 90px;
+    padding-right: 90px;
+    text-align: center; /* 텍스트 정렬을 왼쪽으로 설정합니다. */
+}
+

@@ -3,7 +3,6 @@ import Select from 'react-select';
 import DatePicker from 'react-datepicker';
 import FooterNav from "../../FooterNav";
 import { jwtDecode } from "jwt-decode";
-import { useNavigate } from "react-router-dom";
 import 'react-datepicker/dist/react-datepicker.css';
 import './SearchAllergy.css'
 
@@ -13,7 +12,6 @@ const MakeSelect = () => {
   const [diseaseOptions, setDiseaseOptions] = useState([]);
   const [userInfo, setUserInfo] = useState({ id: "", name: "" }); // 사용자 정보 상태 추가
   const [Allergy, setAllergy] = useState([]);
-  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -129,7 +127,7 @@ const MakeSelect = () => {
               options={diseaseOptions}
             />
           </div>
-          <div>
+          <div id="picker-button">
             <p>날짜 선택</p>
             <DatePicker id="picker"
               selected={selectedDate}
@@ -139,13 +137,25 @@ const MakeSelect = () => {
           </div>
         </div>
         <div>
-          <ul>
-        {/* Disease 배열을 순회하며 목록을 출력합니다. */}
-        {Allergy.map((item, index) => (
-          <li key={index}>{item.value} {item.diseaseDate}</li>
-        ))}
-      </ul>
+          <table id="disease-table">
+            <thead>
+              <tr>
+                <th>알레르기 유발물질</th>
+                <th>진단 일자</th>
+              </tr>
+            </thead>
+            <tbody>
+              {/* Disease 배열을 순회하며 테이블 행을 출력합니다. */}
+              {Allergy.map((item, index) => (
+                <tr key={index}>
+                  <td>{item.value}</td>
+                  <td>{item.diseaseDate}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
+
       </div>
       <div className="foot">
         <FooterNav />
