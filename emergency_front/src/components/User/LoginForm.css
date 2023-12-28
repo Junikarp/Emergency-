@@ -84,7 +84,7 @@ h2 {
 
 .loginForm-input:focus {
   outline: 3px solid #bf3131;
-  background-color: #f8dbcb; /* focus될 때의 배경 색상 변경 */
+  /* background-color: #f8dbcb; focus될 때의 배경 색상 변경 */
 }
 
 button {
