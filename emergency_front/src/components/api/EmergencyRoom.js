@@ -41,6 +41,7 @@ function EmergencyRoom({ centerAddr }) {
         const apiUrl = `${BASE_URL}?serviceKey=${E_KEY}&STAGE1=${encodedSiDo}&STAGE2=${encodedSiGunGu}&pageNo=1&numOfRows=10`;
         const apiAddrUrl = `${BASE_ADDR_URL}?serviceKey=${E_KEY}&Q0=${encodedSiDo}&Q1=${encodedSiGunGu}&pageNo=1&numOfRows=10`;
         // apiUrl을 이용해서 데이터 요청
+        // console.log(apiAddrUrl);
         const response = await fetch(apiUrl);
         const xmlString = await response.text(); // 해석할 xml문자열.
         const XmlNode = new DOMParser().parseFromString(xmlString, "text/xml"); // xml로 변형
@@ -65,13 +66,17 @@ function EmergencyRoom({ centerAddr }) {
         const {
           response: {
             body: {
-              items: { item: item_msg },
+              items: { item: itemMSG },
             },
           },
         } = xmlToJson(XmlNode_msg);
-        const processedMsgData = processData(item_msg);
+        const processedMsgData = processData(itemMSG);
+        // setHospitalMsgData((prevHospitalMsgData) => {
+        //   console.log("이전 병원 메시지 데이터:", prevHospitalMsgData);
+        //   console.log("업데이트된 병원 메시지 데이터:", processedMsgData);
+        //   return processedMsgData;
+        // });
         setHospitalMsgData(processedMsgData);
-        console.log(hospitalData.dutyName);
       } catch (error) {
         console.log(error);
       }
@@ -89,17 +94,15 @@ function EmergencyRoom({ centerAddr }) {
               <p>병원명: {hospital.dutyName}</p>
               <p>병원 전화번호: {hospital.dutyTel3}</p>
               <p>현재 가용가능 응급실 수: {hospital.hvec}</p>
-              <hr></hr>
-              {hospitalMsgData.map(
-                (msgItem) =>
-                  // dutyName이 일치하는 경우 해당 응급실의 주소와 메시지 출력
-                  hospital.dutyName === msgItem.dutyName && (
-                    <div key={msgItem.rnum}>
-                      <p>응급실 주소: {msgItem.dutyAddr}</p>
-                      <p>응급실 메시지: {msgItem.symBlkMsg}</p>
-                    </div>
-                  )
-              )}
+              <hr />
+              {hospitalMsgData
+                .filter((msgItem) => msgItem.dutyAddr === hospital.dutyAddr)
+                .map((msgItem) => (
+                  <div key={msgItem.rnum}>
+                    <p>응급실 주소: {msgItem.dutyAddr}</p>
+                    <p>응급실 메시지: {msgItem.symBlkMsg}</p>
+                  </div>
+                ))}
             </div>
           ))
         : hospitalData && (
@@ -108,25 +111,30 @@ function EmergencyRoom({ centerAddr }) {
               <p>병원명: {hospitalData.dutyName}</p>
               <p>병원 전화번호: {hospitalData.dutyTel3}</p>
               <p>현재 가용가능 응급실 수: {hospitalData.hvec}</p>
-              <p>{hospitalMsgData.dutyAddr}</p>
-              <hr></hr>
-              {Array.isArray(hospitalMsgData) ? (
-                hospitalMsgData.map(
-                  (msgItem) =>
-                    // dutyName이 일치하는 경우 해당 응급실의 주소와 메시지 출력
-                    hospitalData.dutyName === msgItem.dutyName && (
-                      <div key={msgItem.rnum}>
-                        <p>응급실 주소: {msgItem.dutyAddr}</p>
-                        <p>응급실 메시지: {msgItem.symBlkMsg}</p>
-                      </div>
-                    )
-                )
-              ) : (
-                <div>
-                  <p>응급실 주소 : {hospitalMsgData.dutyAddr}</p>
-                  <p>응급실 메시지 : {hospitalMsgData.symBlkMsg}</p>
-                </div>
-              )}
+              <hr />
+              {Array.isArray(hospitalMsgData) &&
+                hospitalMsgData.reduce((uniqueAddresses, msgItem) => {
+                  if (!uniqueAddresses.includes(msgItem.dutyAddr)) {
+                    uniqueAddresses.push(msgItem.dutyAddr);
+
+                    const messagesForAddress = hospitalMsgData
+                      .filter((item) => item.dutyAddr === msgItem.dutyAddr)
+                      .map((item) => (
+                        <div key={item.rnum}>
+                          <p>응급실 주소: {item.dutyAddr}</p>
+                          <p>응급실 메시지: {item.symBlkMsg}</p>
+                        </div>
+                      ));
+
+                    return [...uniqueAddresses, ...messagesForAddress];
+                  }
+                  return uniqueAddresses;
+                }, [])}
+
+              <div>
+                {/* <p>응급실 주소 : {hospitalMsgData.dutyAddr}</p>
+                <p>응급실 메시지 : {hospitalMsgData.symBlkMsg}</p> */}
+              </div>
             </div>
           )}
       <TestMap
@@ -137,4 +145,6 @@ function EmergencyRoom({ centerAddr }) {
   );
   // hospitalData를 사용하여 렌더링하는 로직 추가
 }
+
+// hospitalData를
 export default EmergencyRoom;

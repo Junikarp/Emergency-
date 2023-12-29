@@ -1,5 +1,6 @@
 import { useState } from "react";
 import MapSearch from "./MapSearch";
+import "./SearchInput.css";
 
 function SearchInput() {
   const [input, setInput] = useState(""); // input 검색어 관리
@@ -18,14 +19,17 @@ function SearchInput() {
   return (
     <>
       <div>
-        <div>
-          <form className="inputForm" onSubmit={handleSubmit}>
+        <div className="form-container">
+          <form className="form-style" onSubmit={handleSubmit}>
             <input
+              className="searchInput"
               placeholder="장소를 입력하세요"
               onChange={onChange}
               value={input}
             ></input>
-            <button type="submit">검색</button>
+            <button className="searchInputButton" type="submit">
+              검색
+            </button>
           </form>
         </div>
         <div>
