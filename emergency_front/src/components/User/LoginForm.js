@@ -1,8 +1,14 @@
 import "./LoginForm.css";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import FooterNav from "../FooterNav";
+import cross from "../../assets/logincross.png";
 
 const LoginForm = ({ onLogin }) => {
+  const imgStyle = {
+    width: "50px",
+    height: "50px",
+  };
   //입력한 값 상태 저장
   const [credentials, setCredentials] = useState({
     id: "",
@@ -50,22 +56,48 @@ const LoginForm = ({ onLogin }) => {
     }
   };
   return (
-    <div className="loginForm-global">
-      <form>
-        <input onChange={handleChange} type="text" id="id" placeholder="id" />
-        <input
-          onChange={handleChange}
-          type="password"
-          id="password"
-          placeholder="password"
-        />
-        <button type="submit" onClick={handleSubmit}>
-          로그인
-        </button>
-        <button className="register-button">
-          <Link to="/register">회원가입</Link>
-        </button>
-      </form>
+    <div className="loginForm">
+      <div className="loginForm-container-global">
+        <div className="loginForm-head">
+          <img src={cross} style={imgStyle} />
+        </div>
+        <div className="loginForm-container">
+          <div className="loginForm-headline">
+            <h2>Login</h2>
+          </div>
+          <div className="loginForm-global">
+            <form className="loginForm-box">
+              <input
+                className="loginForm-input"
+                onChange={handleChange}
+                type="text"
+                id="id"
+                placeholder="ID"
+              />
+              <input
+                className="loginForm-input"
+                onChange={handleChange}
+                type="password"
+                id="password"
+                placeholder="PASSWORD"
+              />
+              <div className="loginForm-button">
+                <button id="login" type="submit" onClick={handleSubmit}>
+                  Login
+                </button>
+                {/* <button className="register-button"> */}
+                <Link id="regist-link" to="/register">
+                  Create an account?
+                </Link>
+                {/* </button> */}
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div>
+        <FooterNav />
+      </div>
     </div>
   );
 };
