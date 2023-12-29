@@ -1,0 +1,73 @@
+*{
+    margin: auto;
+}
+
+.searchDisease-container{
+    width: 40%;
+    height: 500px;
+    margin: auto;
+    background-color: #F6E7D8;
+    position: relative;   
+}
+
+/* Header */
+.searchDisease-header{
+    display: flex;
+    background-color: #BF3131;
+    height: 100px;
+    border-radius: 10px;
+    margin-bottom: 5%;
+}
+
+/* Content 부분 */
+.searchDisease-content {
+    display: flex;
+    align-items: center; /* 아이템을 수직으로 가운데 정렬합니다. */
+    background-color: #F6E7D8;
+}
+
+.searchDisease-content-selectDisease,
+.searchDisease-content-selectDiseaseDate {
+    position: relative;
+}
+
+.searchDisease-content-selectDisease label,
+.searchDisease-content-selectDiseaseDate label {
+    background-color:transparent; /* 레이블의 배경 색상 설정 */
+    position: absolute;
+    top : -5px;
+    left: 12px;
+    font-size: 12px; /* 폰트 크기 조정 */
+    font-weight: bold;
+    color: #333; /* 텍스트 색상 설정 */
+    z-index: 999; /* Z-축 순서 조정 */
+}
+
+span{
+    color: red;
+    background-color:transparent;
+}
+
+.searchDisease-content-selectDisease .searchDisease-content-input {
+    width: 130%;
+    height: 40px;
+    font-size: 10px;
+}
+
+.searchDisease-content-selectDiseaseDate .searchDisease-content-input {
+    width: 130%;
+    height: 40px;
+    font-size: 10px;
+    padding-left: 5%;
+}
+
+.searchDisease-content-button button {
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    width: 120%;
+    height: 40px;
+    background-color: skyblue;
+    border-radius: 20%;
+    box-shadow: 1px 1px 1px 1px gray;
+}

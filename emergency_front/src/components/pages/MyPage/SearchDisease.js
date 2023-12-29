@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Select from 'react-select';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import "./SearchDisease.css";
 
 const MakeSelect = () => { // 선택된 질병 상태
   const [selectedDisease, setSelectedDisease] = useState(null);
@@ -62,28 +63,60 @@ const MakeSelect = () => { // 선택된 질병 상태
   };
 
   return (
-    <>
-      <p>질병 선택</p>
-      <Select
-        value={selectedDisease} // 선택된 질병 상태를 값으로 설정
-        onChange={handleDiseaseChange} // 선택된 질병을 상태에 저장
-        placeholder="질병을 선택하세요."
-        options={diseaseOptions} // 질병 옵션 목록을 설정
-      />
-      <p>날짜 선택</p>
-      <DatePicker
-        selected={selectedDate} // 선택된 날짜 상태를 값으로 설정
-        onChange={handleDateChange} // 선택된 날짜를 상태에 저장
-      />
-      <button onClick={handleSave}>저장</button>
-      {selectedDisease && ( // 선택된 질병이 있을 때만 출력
+    <div className='searchDisease-container'>
+      {/* Header */}
+      <div className='searchDisease-header'>
+        <div className='searchDisease-header-image'>이미지</div>
+        <div className='searchDisease-header-name'>박지운</div>
+      </div>
+      {/* Content */}
+      <div className='searchDisease-content'>
+
+        <div className='searchDisease-content-selectDisease'>
+
+          <label for='selectDisease'>
+            <span>*</span>질병 선택
+          </label>
+          <Select
+            className='searchDisease-content-input'
+            id='selectDisease'
+            value={selectedDisease} // 선택된 질병 상태를 값으로 설정
+            onChange={handleDiseaseChange} // 선택된 질병을 상태에 저장
+            placeholder="질병을 선택하세요."
+            options={diseaseOptions} // 질병 옵션 목록을 설정
+          />
+
+        </div>
+
+        <div className='searchDisease-content-selectDiseaseDate'>
+
+          <label for='selectDiseaseDate'>
+            <span>*</span>날짜 선택
+          </label>
+          <DatePicker
+            className='searchDisease-content-input'
+            id='selectDiseaseDate'
+            selected={selectedDate} // 선택된 날짜 상태를 값으로 설정
+            onChange={handleDateChange} // 선택된 날짜를 상태에 저장
+          />
+        </div>
+
+        <div className='searchDisease-content-button'>
+          <button onClick={handleSave}>저장</button>
+        </div>
+      </div>
+
+
+      {/* Footer */}
+      {/* {selectedDisease && ( // 선택된 질병이 있을 때만 출력
         <div>
           <p>선택된 질병: {selectedDate.label}</p>
           <p>선택된 날짜: {selectedDate.toLocaleDateString()}</p>
         </div>
-      )}
-    </>
+      )} */}
+    </div>
   );
 };
 
 export default MakeSelect;
+
