@@ -3,7 +3,7 @@ import Select from "react-select";
 import DatePicker from "react-datepicker";
 import FooterNav from "../../FooterNav";
 import { jwtDecode } from "jwt-decode";
-import diseaseImg from "../../../assets/allergy.png";
+import virusImg from "../../../assets/virus.png";
 import deleteImg from "../../../assets/deleteAllergy.png";
 import "react-datepicker/dist/react-datepicker.css";
 import "./SearchDisease.css";
@@ -151,7 +151,7 @@ const MakeSelect = () => {
         </div>
         <div id="main-con">
           <div id="disease-title">
-            <img src={diseaseImg} id="diseaseImg"></img>
+            <img src={virusImg} id="virusImg"></img>
             <p>내 질환</p>
           </div>
           <div id="input-box">

@@ -3,7 +3,7 @@ import Select from 'react-select';
 import DatePicker from 'react-datepicker';
 import FooterNav from "../../FooterNav";
 import { jwtDecode } from "jwt-decode";
-import allergyImg from "../../../assets/allergy.png"
+import medicationImg from "../../../assets/medication.png"
 import deleteImg from "../../../assets/deleteAllergy.png"
 import 'react-datepicker/dist/react-datepicker.css';
 import './TakingMedicine.css'
@@ -129,12 +129,14 @@ const TakingMedicine = () => {
 
   return (
     <>
+    <div id='allergy-whole'>
+      
       <div id="name-box">
         {userInfo.name} 님 {/* 이름과 ID를 표시합니다. */}
       </div>
       <div id="main-con">
         <div id="medication-title">
-          <img src={allergyImg} id="allergyImg"></img>
+          <img src={medicationImg} id="medicationImg"></img>
           <p>복용약</p>
         </div>
         <div id="input-box">
@@ -178,6 +180,7 @@ const TakingMedicine = () => {
           </table>
         </div>
       </div>
+    </div>
       <div className="foot">
         <FooterNav />
       </div>

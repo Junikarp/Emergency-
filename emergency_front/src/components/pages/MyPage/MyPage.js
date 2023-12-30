@@ -85,11 +85,11 @@ const MyPage = ({ token }) => {
         <>
           <div id="mypage-main">
             <header className="mypage-header">
-              <h2>마이페이지</h2>
+              <p id="mypage-title">마이페이지</p>
             </header>
             <div className="mypage-mypagecontainer-global">
               <div id="mypage-name-box">
-                <h2>{userInfo.name} 님</h2>
+                <p>{userInfo.name} 님</p>
               </div>
               <div id="mypage-button-box">
                 <MyPageContainer>

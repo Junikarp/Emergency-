@@ -14,7 +14,8 @@ body {
     display: flex;
     background-color: #BF3131;
     width: 600px;
-    height: 90px;
+    /* height: 90px; */
+    /* height: 90px; */
     border-radius: 20px;
     margin-top: 30px;
     justify-content: center;
@@ -34,6 +35,8 @@ body {
     height: 37px;
     padding-right: 10px;
     border-radius: 10px;
+    margin-right: 10px;
+    border: 1px solid rgb(196, 196, 196);
 }
 
 #main-con {
@@ -95,7 +98,7 @@ body {
     text-align: center; /* 텍스트 정렬을 왼쪽으로 설정합니다. */
 }
 
-#allergyImg {
+#medicationImg {
     height: 72px;
     width: 72px;
 }
@@ -105,6 +108,7 @@ body {
     align-items: center;
     font-size: 40px;
     margin-bottom: 10px;
+    gap:10px;
 }
 
 #deleteImg {

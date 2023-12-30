@@ -135,7 +135,9 @@ const MakeSelect = () => {
     <>
     <div id="allergy-whole">
       <div id="name-box">
-        {userInfo.name} 님 {/* 이름과 ID를 표시합니다. */}
+        <p>
+          {userInfo.name} 님 
+          </p>{/* 이름과 ID를 표시합니다. */}
       </div>
       <div id="main-con">
         <div id="allergy-title">

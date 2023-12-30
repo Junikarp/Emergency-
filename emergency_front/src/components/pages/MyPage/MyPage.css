@@ -1,11 +1,17 @@
 #mypage-name-box {
+    /* display: flex; */
   width: 700px;
-  height: 120px;
+  /* height: 120px; */
   background-color: #bf3131;
   margin-bottom: 30px;
   margin-top: 70px;
   border-radius: 30px;
   text-align: center;
+  /* justify-content: center; */
+  font-size: 52px;
+  font-weight: bold;
+  color: #fefefe;
+  padding: 2vh;
 }
 .mypage-mypagecontainer-global {
   display: flex;
