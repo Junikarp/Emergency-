@@ -1,0 +1,95 @@
+#mypage-update-title {
+    display: flex;
+    background-color: #BF3131;
+    color : white;
+    width: 600px;
+    height: 90px;
+    border-radius: 20px;
+    margin-top: 60px;
+    margin-left: 450px;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+}
+
+#mypageUpdateImg {
+    margin-right:30px;
+    width: 60px;
+    height: 60px;
+}
+
+#myinfo-update-button-con {
+    display: flex;
+    align-items: center;
+    height: 60px;
+    width: 170px;
+    margin-top: 10px;
+    margin-left: auto;
+}
+
+#myinfo-update-main-con {
+    display: flex;
+    flex-direction: column;
+    margin-left: 450px;
+    align-items: center;
+    width: 600px;
+    height :500px;
+    background-color: #F6E7D8;
+    border-radius: 30px;
+    margin-top: 20px;
+}
+
+#myinfo-update-table {
+    width: 500px;
+    font-size: 20px;
+}
+
+#myinfo-update-table {
+    border-collapse: collapse; /* 테두리를 합침 */
+    border-spacing: 0; /* 셀 사이의 간격 없앰 */
+    margin-top: 20px;
+}
+  
+#myinfo-update-table td {
+    border-bottom: 1px solid #151515; /* 아래쪽 선 스타일 지정 */
+    padding: 8px; /* 셀 내부 여백 설정 */
+}
+
+#myinfo-update-form {
+    margin-top: 30px;
+}
+
+#myinfo-update-button {
+    background-color: #1C8DF4;
+    color : white;
+    width: 70px;
+    height: 35px;
+    border-radius: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+#myinfo-update-button:hover {
+    background-color: blue;
+    cursor: pointer;
+}
+
+#myinfo-update-cancel-button {
+    background-color: #F41C1C;
+    color: white;
+    width: 70px;
+    height: 35px;
+    border-radius: 5px;
+}  
+
+#myinfo-update-cancel-button:hover {
+    background-color: #BF3131;
+    cursor: pointer;
+}
+
+#mypage-update-input {
+    height : 30px;
+    padding-left: 10px;
+    border: 2px solid black;
+    border-radius: 5px;
+}

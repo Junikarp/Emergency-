@@ -1,7 +1,10 @@
 //상세정보 수정페이지
+import FooterNav from "../../FooterNav";
 import { useState, useEffect } from "react";
 import { jwtDecode } from "jwt-decode";
 import { useNavigate } from "react-router-dom";
+import mypageUpdateImg from "../../../assets/mypageupdate.png"
+import "./MyPageDetailUpdate.css"
 
 const MyPageDetailUpdate = () => {
   const [token, setToken] = useState("");
@@ -103,69 +106,96 @@ const MyPageDetailUpdate = () => {
 
   return (
     <>
-      <div>
-        <h2>상세정보 수정</h2>
+      <div id="mypage-update-title">
+        <img src={mypageUpdateImg} id="mypageUpdateImg"></img>
+        내 정보 수정
+      </div>
+      <div id="myinfo-update-main-con">
         {userInfo && (
-          <form onSubmit={handleSubmit}>
-            <label htmlFor="id">아이디</label>
-            <input
-              type="text"
-              id="id"
-              name="id"
-              value={userInfo.id}
-              disabled // 수정 불가능한 상태로 설정
-            />
-            <label htmlFor="name">이름</label>
-            <input
-              type="text"
-              name="name"
-              onChange={handleInputChange}
-              value={userInfo.name}
-            />
-            <label htmlFor="password">비밀번호</label>
-            <input
-              value={userInfo.password}
-              type="password"
-              name="password"
-              onChange={handleInputChange}
-            />
-            <p className="message">{pwMsg}</p>
-            <label htmlFor="passwordCheck">비밀번호 확인</label>
-            <input
-              type="password"
-              name="passwordCheck"
-              onChange={handleInputChange}
-            />
-            <p className="message">{pwCheckMsg}</p>
-            <label htmlFor="height">신장</label>
-            <input
-              type="number"
-              value={userInfo.height}
-              name="height"
-              onChange={handleInputChange}
-            />
-            <label htmlFor="weight">몸무게</label>
-            <input
-              type="number"
-              value={userInfo.weight}
-              name="weight"
-              onChange={handleInputChange}
-            />
-            <p>
-              혈액형 {userInfo.bloodtypeRh} {userInfo.bloodtypeABO}
-            </p>
-            <label htmlFor="guardianTel">보호자 연락처</label>
-            <input
-              type="tel"
-              name="guardianTel"
-              pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}"
-              onChange={handleInputChange}
-              value={userInfo.guardianTel}
-            />
-            <button type="submit">수정 완료</button>
+          <form onSubmit={handleSubmit} id="myinfo-update-form">
+            <table id="myinfo-update-table">
+              <tbody>
+                <tr>
+                  <td>아이디</td>
+                  <td>{userInfo.id}</td>
+                </tr>
+                <tr>
+                  <td>이름</td>
+                  <td>{userInfo.name}</td>
+                </tr>
+                <tr>
+                  <td>비밀번호</td>
+                  <td>
+                    <input id="mypage-update-input"
+                      value={userInfo.password}
+                      type="password"
+                      name="password"
+                      onChange={handleInputChange}
+                    />
+                    <p className="message">{pwMsg}</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>비밀번호 확인</td>
+                  <td>
+                    <input id="mypage-update-input"
+                      type="password"
+                      name="passwordCheck"
+                      onChange={handleInputChange}
+                    />
+                    <p className="message">{pwCheckMsg}</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>신장</td>
+                  <td>
+                    <input id="mypage-update-input"
+                      type="number"
+                      value={userInfo.height}
+                      name="height"
+                      onChange={handleInputChange}
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td>몸무게</td>
+                  <td>
+                    <input id="mypage-update-input"
+                      type="number"
+                      value={userInfo.weight}
+                      name="weight"
+                      onChange={handleInputChange}
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td>혈액형</td>
+                  <td>
+                    {userInfo.bloodtypeRh} {userInfo.bloodtypeABO}
+                  </td>
+                </tr>
+                <tr>
+                  <td>보호자 연락처</td>
+                  <td>
+                    <input id="mypage-update-input"
+                      type="tel"
+                      name="guardianTel"
+                      pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}"
+                      onChange={handleInputChange}
+                      value={userInfo.guardianTel}
+                    />
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <div id="myinfo-update-button-con">
+              <button id="myinfo-update-button" type="submit">확인</button>
+              <button id="myinfo-update-cancel-button">취소</button>
+            </div>
           </form>
         )}
       </div>
+      <FooterNav></FooterNav>
     </>
   );
 };
