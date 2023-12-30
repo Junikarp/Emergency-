@@ -37,7 +37,11 @@
     align-items: center;
     border-radius: 20px;
 }
+.ypage-button-img{
+    width: 70%;
+}
 
 .mypage-button-text {
-    text-align: left;
+    width: 70%;
+    text-align: right;
 }
