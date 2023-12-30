@@ -53,9 +53,10 @@ const MyPageDetail = () => {
     <>
       {/* userInfo 응답와야 렌더링되게끔! */}
       {userInfo && (
-        <div>
-          <div id="name-box">
-            <p>{userInfo.name} 님 </p>{/* 이름과 ID를 표시합니다. */}
+        <div className="myinfo-whole">
+          <div id="myinfo-name-box">
+            <p>{userInfo.name} 님 </p>
+            {/* 이름과 ID를 표시합니다. */}
           </div>
           <div id="myinfo-main-con">
             <div id="myinfo-main-con-title">

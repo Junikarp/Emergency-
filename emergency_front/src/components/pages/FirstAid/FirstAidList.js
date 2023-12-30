@@ -2,8 +2,8 @@ import { useState } from "react";
 import "./FirstAid.css";
 function FirstAidListItem({ item }) {
   const style = {
-    width: "500px",
-    height: "500px",
+    // width: "500px",
+    // height: "500px",
   };
   return (
     <div className="FirstAidListItem">

@@ -136,8 +136,8 @@
 
 .FirstAidListItem {
   padding-bottom: 70px;
-  display: flex;
-  justify-content: center;
+  /* display: flex;
+  justify-content: center; */
 }
 
 .selected-item {
@@ -152,4 +152,6 @@
 
 .item-detail {
   margin: 10px 0 10px 0;
+  display: flex;
+  justify-content: center;
 }

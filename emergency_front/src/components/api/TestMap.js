@@ -104,7 +104,7 @@ function TestMap({ handleHospitalData, handleHospitalAddrData }) {
               hasHvec = "<div>Error: dutyName or hvec not available</div>";
             }
 
-            const content = `<div><div>${hasHvec}</div><div>${msgItem.symBlkMsg}</div></div>`;
+            const content = `<div><div><div>${hasHvec}</div><div>${msgItem.symBlkMsg}</div></div></div>`;
 
             // 마커 생성하고 지도에 표시
             const marker = new kakao.maps.Marker({

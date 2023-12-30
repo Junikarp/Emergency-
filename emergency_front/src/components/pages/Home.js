@@ -88,7 +88,7 @@ function Home() {
         <div>
           <FooterNav />
         </div>
-        {isLogin ? (
+        {/* {isLogin ? (
           // 로그인 상태일 때 로그아웃 버튼 렌더링
           <button onClick={handleLogout}>로그아웃</button>
         ) : (
@@ -101,7 +101,7 @@ function Home() {
               <button>회원가입</button>
             </Link>
           </>
-        )}
+        )} */}
       </div>
     </>
   );
