@@ -133,6 +133,7 @@ const MakeSelect = () => {
 
   return (
     <>
+    <div id="allergy-whole">
       <div id="name-box">
         {userInfo.name} 님 {/* 이름과 ID를 표시합니다. */}
       </div>
@@ -149,14 +150,14 @@ const MakeSelect = () => {
               onChange={handleDiseaseChange}
               placeholder="알레르기 원인을 선택하세요."
               options={diseaseOptions}
-            />
+              />
           </div>
           <div id="picker-button">
             <p>날짜 선택</p>
             <DatePicker id="picker"
               selected={selectedDate}
               onChange={handleDateChange}
-            />
+              />
             <button className="save" onClick={handleSave}>저장</button>
           </div>
         </div>
@@ -181,6 +182,7 @@ const MakeSelect = () => {
           </table>
         </div>
       </div>
+              </div>
       <div className="foot">
         <FooterNav />
       </div>

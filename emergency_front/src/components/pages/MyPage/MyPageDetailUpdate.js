@@ -106,6 +106,7 @@ const MyPageDetailUpdate = () => {
 
   return (
     <>
+    <div id="mypage-update-whole">
       <div id="mypage-update-title">
         <img src={mypageUpdateImg} id="mypageUpdateImg"></img>
         내 정보 수정
@@ -131,7 +132,7 @@ const MyPageDetailUpdate = () => {
                       type="password"
                       name="password"
                       onChange={handleInputChange}
-                    />
+                      />
                     <p className="message">{pwMsg}</p>
                   </td>
                 </tr>
@@ -142,7 +143,7 @@ const MyPageDetailUpdate = () => {
                       type="password"
                       name="passwordCheck"
                       onChange={handleInputChange}
-                    />
+                      />
                     <p className="message">{pwCheckMsg}</p>
                   </td>
                 </tr>
@@ -154,7 +155,7 @@ const MyPageDetailUpdate = () => {
                       value={userInfo.height}
                       name="height"
                       onChange={handleInputChange}
-                    />
+                      />
                   </td>
                 </tr>
                 <tr>
@@ -165,7 +166,7 @@ const MyPageDetailUpdate = () => {
                       value={userInfo.weight}
                       name="weight"
                       onChange={handleInputChange}
-                    />
+                      />
                   </td>
                 </tr>
                 <tr>
@@ -183,7 +184,7 @@ const MyPageDetailUpdate = () => {
                       pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}"
                       onChange={handleInputChange}
                       value={userInfo.guardianTel}
-                    />
+                      />
                   </td>
                 </tr>
               </tbody>
@@ -194,6 +195,7 @@ const MyPageDetailUpdate = () => {
             </div>
           </form>
         )}
+      </div>
       </div>
       <FooterNav></FooterNav>
     </>

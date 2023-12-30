@@ -132,6 +132,7 @@ const MakeSelect = () => { // 선택된 질병 상태
 
   return (
     <>
+    <div id="disease-whole">
       <div id="name-box">
         {userInfo.name} 님 {/* 이름과 ID를 표시합니다. */}
       </div>
@@ -148,14 +149,14 @@ const MakeSelect = () => { // 선택된 질병 상태
               onChange={handleDiseaseChange}
               placeholder="질병을 선택하세요."
               options={diseaseOptions}
-            />
+              />
           </div>
           <div id="picker-button">
             <p>날짜 선택</p>
             <DatePicker id="picker"
               selected={selectedDate}
               onChange={handleDateChange}
-            />
+              />
             <button className="save" onClick={handleSave}>저장</button>
           </div>
         </div>
@@ -179,6 +180,7 @@ const MakeSelect = () => { // 선택된 질병 상태
             </tbody>
           </table>
         </div>
+      </div>
       </div>
       <div className="foot">
         <FooterNav />

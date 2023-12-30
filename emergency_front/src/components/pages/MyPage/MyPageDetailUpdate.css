@@ -6,7 +6,6 @@
     height: 90px;
     border-radius: 20px;
     margin-top: 60px;
-    margin-left: 450px;
     justify-content: center;
     align-items: center;
     font-size: 40px;
@@ -30,7 +29,6 @@
 #myinfo-update-main-con {
     display: flex;
     flex-direction: column;
-    margin-left: 450px;
     align-items: center;
     width: 600px;
     height :500px;
@@ -67,6 +65,7 @@
     border-radius: 5px;
     margin-left: 10px;
     margin-right: 10px;
+    border: none;
 }
 
 #myinfo-update-button:hover {
@@ -92,4 +91,10 @@
     padding-left: 10px;
     border: 2px solid black;
     border-radius: 5px;
+}
+
+#mypage-update-whole {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
