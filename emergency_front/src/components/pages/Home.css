@@ -1,0 +1,88 @@
+/* .box {
+  padding: 4.5em 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+} */
+.home-container {
+  background-color: #141e46;
+  color: #37474f;
+  position: relative;
+}
+.home-button-container {
+  display: flex;
+  justify-content: space-around;
+}
+.home-button--round-l {
+  border-radius: 40px;
+}
+
+.home-button {
+  float: left;
+  min-width: 150px;
+  max-width: 250px;
+  display: block;
+  margin: 1em;
+  /* padding: 1em 2em; */
+  border: none;
+  background: none;
+  color: inherit;
+  vertical-align: middle;
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  -moz-osx-font-smoothing: grayscale;
+}
+.home-button:focus {
+  outline: none;
+}
+.home-button > span {
+  vertical-align: middle;
+}
+
+.home-button--text-thick {
+  font-weight: 600;
+}
+.home-button.home-button--aylen {
+  background: #fff;
+  color: #37474f;
+  overflow: hidden;
+  -webkit-transition: color 0.3s;
+  transition: color 0.3s;
+}
+.home-button--aylen.home-button--inverted {
+  background: none;
+  color: #fff;
+}
+.home-button--aylen::before,
+.home-button--aylen::after {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  bottom: 100%;
+  left: 0;
+  z-index: -1;
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+  -webkit-transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
+  transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
+}
+.home-button--aylen::before {
+  background: #4263e6db;
+}
+.home-button--aylen::after {
+  background: #141e46;
+}
+.home-button--aylen:hover {
+  color: #fff;
+}
+.home-button--aylen:hover::before,
+.home-button--aylen:hover::after {
+  -webkit-transform: translate3d(0, 100%, 0);
+  transform: translate3d(0, 100%, 0);
+}
+.home-button--aylen:hover::after {
+  -webkit-transition-delay: 0.175s;
+  transition-delay: 0.175s;
+}

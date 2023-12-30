@@ -62,8 +62,11 @@ const ChatBot = () => {
       {/* prop 보내주기 => input한테! isLoading이랑 onSubmit*/}
       {/* <div>data : {data?.respond}</div> */}
       <div>isLoading : {isLoading ? "loading.." : "fin"}</div>
-      <ChatBotInput isLoading={isLoading} onSubmit={handleSubmit} />
-      <FooterNav />
+      <div className="chatbot-input">
+        <ChatBotInput isLoading={isLoading} onSubmit={handleSubmit} />
+      </div>
+
+      {/* <FooterNav /> */}
     </>
   );
 };

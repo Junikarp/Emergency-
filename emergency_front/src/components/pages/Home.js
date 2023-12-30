@@ -4,6 +4,7 @@ import SearchInput from "../api/SearchInput";
 import { Link, useNavigate } from "react-router-dom";
 import Category from "../api/Category";
 import EmergencyMap from "../api/EmergencyMap";
+import "./Home.css";
 
 function Home() {
   //로그인 상태 저장
@@ -60,19 +61,30 @@ function Home() {
   };
   return (
     <>
-      <div>
-        <button onClick={() => handleButtonClick("search")}>
-          병원/약국검색
-        </button>
-        <button onClick={() => handleButtonClick("emergency")}>
-          응급실 현황
-        </button>
-        <button onClick={() => handleButtonClick("category")}>
-          카테고리 테스트
-        </button>
+      <div className="home-container">
+        <div className="home-button-container">
+          <button
+            className="home-button home-button--aylen home-button--round-l home-button--text-thick"
+            onClick={() => handleButtonClick("search")}
+          >
+            검색
+          </button>
+          <button
+            className="home-button home-button--aylen home-button--round-l home-button--text-thick"
+            onClick={() => handleButtonClick("emergency")}
+          >
+            응급실 현황
+          </button>
+          <button
+            className="home-button home-button--aylen home-button--round-l home-button--text-thick"
+            onClick={() => handleButtonClick("category")}
+          >
+            주변 병원/약국 찾기
+          </button>
+        </div>
+        <div>{renderComponent()}</div>
       </div>
       <div>
-        <div>{renderComponent()}</div>
         <div>
           <FooterNav />
         </div>

@@ -1,9 +1,18 @@
 import "./Category.css";
 import { useState, useEffect } from "react";
+import EmergencyMap from "./EmergencyMap";
 // 약국 / 병원 컴포넌트
 function Category() {
   const { kakao } = window; // 함수형 컴포넌트에서는 kakao script 인지를 못하므로 window에서 kakao 객체 뽑아서 써야함
   const [location, setLocation] = useState(null);
+  const [showEmergencyMap, setShowEmergencyMap] = useState(false);
+  const handleEmergencyClick = () => {
+    setShowEmergencyMap(true);
+  };
+  const [showHospitalList, setSHowHospitalList] = useState(false);
+  const handleHospitalClick = () => {
+    setSHowHospitalList(true);
+  };
   useEffect(() => {
     const successHandler = (response) => {
       const { latitude, longitude } = response.coords;
@@ -250,36 +259,37 @@ function Category() {
   }, [location]);
 
   return (
-    <div
-      className="map_wrap"
-      style={{
-        width: "100%",
-        height: "70vh",
-      }}
-    >
+    <>
       <div
-        id="map"
+        className="map_wrap"
         style={{
           width: "100%",
-          height: "100%",
-          position: "relative",
-          overflow: "hidden",
+          height: "70vh",
         }}
-      ></div>
-      <ul id="category">
-        <li id="HP8" data-order="0">
-          <span className="category_bg hospital"></span>
-          병원
-        </li>
-        <li id="PM9" data-order="1">
-          <span className="category_bg pharmacy"></span>
-          약국
-        </li>
-        <li id="EM" data-order="2">
-          <span className="category_bg emergency">응급실</span>
-        </li>
-      </ul>
-    </div>
+      >
+        <div
+          id="map"
+          style={{
+            width: "100%",
+            height: "100%",
+            position: "absolute",
+            overflow: "hidden",
+          }}
+        ></div>
+        <ul id="category">
+          <li id="HP8" data-order="0">
+            <button onclick={handleHospitalClick}>
+              <span className="category_bg hospital"></span>
+              병원
+            </button>
+          </li>
+          <li id="PM9" data-order="1">
+            <span className="category_bg pharmacy"></span>
+            약국
+          </li>
+        </ul>
+      </div>
+    </>
   );
 }
 

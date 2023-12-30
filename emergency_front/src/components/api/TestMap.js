@@ -68,7 +68,7 @@ function TestMap({ handleHospitalData, handleHospitalAddrData }) {
     var mapContainer = document.getElementById("map");
     var mapOption = {
       center: location || new kakao.maps.LatLng(37.566826, 126.9786567), // 기본 좌표 설정
-      level: 4,
+      level: 6,
     };
 
     var map = new kakao.maps.Map(mapContainer, mapOption);
