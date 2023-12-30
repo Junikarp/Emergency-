@@ -107,17 +107,25 @@ const MyPage = ({ token }) => {
               </MyPageContainer>
               {isLogin ? (
                 // 로그인 상태일 때 로그아웃 버튼 렌더링
-                <button onClick={handleLogout} id="login">
+                <button
+                  onClick={handleLogout}
+                  id="login"
+                  className="btn-mypage"
+                >
                   로그아웃
                 </button>
               ) : (
                 // 로그인 상태가 아닐 때 로그인 버튼 렌더링
                 <>
                   <Link to="/login">
-                    <button id="login">로그인</button>
+                    <button id="login" className="btn-mypage">
+                      로그인
+                    </button>
                   </Link>
                   <Link to="/register">
-                    <button id="login">회원가입</button>
+                    <button id="login" className="btn-mypage">
+                      회원가입
+                    </button>
                   </Link>
                 </>
               )}

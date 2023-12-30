@@ -1,50 +1,53 @@
 #mypage-name-box {
-    width:700px;
-    height: 120px;
-    background-color: #BF3131;
-    margin-bottom: 30px;
-    margin-top: 70px;
-    border-radius: 30px;
+  width: 700px;
+  height: 120px;
+  background-color: #bf3131;
+  margin-bottom: 30px;
+  margin-top: 70px;
+  border-radius: 30px;
 }
 
 #mypage-main {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 #mypage-small-button-box {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin-bottom: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 30px;
 }
 
 #mypage-button-box {
-    width:700px;
-    height: 400px;
+  width: 700px;
+  height: 400px;
 }
 
 .mypage-button {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    width:340px;
-    height: 140px;
-    background-color: #F6E7D8;
-    font-size: 30px;
-    align-items: center;
-    border-radius: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 340px;
+  height: 140px;
+  background-color: #f6e7d8;
+  font-size: 30px;
+  align-items: center;
+  border-radius: 20px;
 }
-.mypage-button-img{
-    display: flex;
-    justify-content: center;
-    width: 35%;
+.mypage-button-img {
+  display: flex;
+  justify-content: center;
+  width: 35%;
 }
 
 .mypage-button-text {
-    width: 65%;
-    text-align: left;
-    color:black;
+  width: 65%;
+  text-align: left;
+  color: black;
+}
+.btn-mypage {
+  float: right;
 }
