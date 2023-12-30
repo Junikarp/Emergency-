@@ -30,9 +30,11 @@ const RegisterForm = ({
   //id이미 있는지 확인하기
   const checkIdValid = () => {
     const isExist = existingIds.includes(formData.id);
-    setIdExistMsg(
-      isExist ? "이미 존재하는 아이디입니다." : "사용가능한 아이디입니다."
-    );
+
+    const message = isExist
+      ? "이미 존재하는 아이디입니다."
+      : "사용가능한 아이디입니다.";
+    alert(message);
   };
 
   const handleCheckDuplicate = async () => {
@@ -76,7 +78,6 @@ const RegisterForm = ({
             <button type="button" onClick={handleCheckDuplicate}>
               아이디 확인
             </button>
-            <p>{idExistMsg}</p>
           </div>
           <div className="registform-input">
             <input

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import styles from "./ChatBotInput.module.css";
+import "./ChatBotInput.css";
 
 //isLoading 받아오기(ChatBot에서 내려준 prop)
 const ChatBotInput = ({ onSubmit }) => {
@@ -16,9 +16,9 @@ const ChatBotInput = ({ onSubmit }) => {
   };
   return (
     <>
-      <div className={styles.userInputContainer}>
+      <div className="userInputContainer">
         <textarea
-          className={styles.userInputText}
+          className="styles.userInputText"
           value={userInput}
           onChange={handleUserInput}
           placeholder="궁금한 응급처치 방법을 물어보세요"

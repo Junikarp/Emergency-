@@ -3,3 +3,16 @@
   display: flex;
   justify-content: center;
 }
+
+.chatbot-input {
+  background-color: #141e46;
+  position: fixed;
+  display: flex;
+  padding: 0.7vh 0.7vw;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
