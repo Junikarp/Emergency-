@@ -16,6 +16,7 @@ const MyPage = ({ token }) => {
   const navigate = useNavigate();
   //로그인 됐는지 토큰 가져와서 상태 확인
   useEffect(() => {
+    console.log(token);
     const existToken = localStorage.getItem("token");
     //토큰 있으면 로그인 ㅅ아태
     setIsLogin(existToken);
@@ -47,31 +48,30 @@ const MyPage = ({ token }) => {
     fetchData();
   }, []);
   //로그아웃
-  const handleLogout = () => {
-    //로그아웃 누르면 토큰 삭제
+
+  //로그아웃 누르면 토큰 삭제
+  const handleLogout = async () => {
     localStorage.removeItem("token");
     //홈으로 이동
     navigate("/");
     setIsLogin(false);
-    const handleLogout = async () => {
-      try {
-        const response = await fetch(`http://localhost:8080/api/logout`, {
-          method: "GET",
-          credentials: "same-origin",
-        });
-        if (response.ok) {
-          //로그아웃 누르면 토큰 삭제
-          localStorage.removeItem("token");
-          setIsLogin(false);
-          // //홈으로 이동
-          navigate("/");
-        } else {
-          console.error("로그아웃 실패");
-        }
-      } catch (error) {
-        console.error("에러남", error);
+    try {
+      const response = await fetch(`http://localhost:8080/api/logout`, {
+        method: "GET",
+        credentials: "same-origin",
+      });
+      if (response.ok) {
+        //로그아웃 누르면 토큰 삭제
+        localStorage.removeItem("token");
+        setIsLogin(false);
+        // //홈으로 이동
+        navigate("/");
+      } else {
+        console.error("로그아웃 실패");
       }
-    };
+    } catch (error) {
+      console.error("에러남", error);
+    }
   };
   const imgStyle = {
     width: "72px",

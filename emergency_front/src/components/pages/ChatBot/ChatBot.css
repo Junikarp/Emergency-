@@ -15,7 +15,7 @@
   background-color: transparent;
   border: none;
   position: absolute;
-  top: 0.7rem;
+  top: 0.9rem;
   right: 1rem;
   cursor: pointer;
 }
@@ -24,7 +24,7 @@
   display: none;
   position: absolute;
   right: 0;
-  top: 3.5rem;
+  top: 4rem;
   flex-direction: column;
   background-color: #141e46;
   border-bottom-left-radius: 8px;
@@ -63,11 +63,11 @@
   bottom: 0;
   left: 0;
   right: 0;
-  height: 3.5rem; /* 입력창의 높이 설정 */
+  height: 5rem; /* 입력창의 높이 설정 */
 }
 
 .chatbot-message-container {
-  line-height: 1.3;
+  line-height: 1.4;
   margin-top: 3.5rem;
   margin-bottom: 3.5rem; /* .chatbot-input의 높이만큼 여백 추가 */
   display: flex;
@@ -79,6 +79,9 @@
   ); /* 최대 높이 설정, 화면 전체 높이에서 헤더와 입력창의 높이를 뺀 만큼으로 설정 */
 }
 .userChat {
+  padding: 3px;
+  font-size: 1.1rem;
+  font-weight: bold;
   display: flex;
   justify-content: center;
   background-color: #fff0cf;
@@ -88,9 +91,11 @@
   box-shadow: 8px 11px 16px -7px rgba(0, 0, 0, 0.65);
 }
 .gptChat {
+  padding: 3px;
+  font-size: 1.1rem;
   border-radius: 15px;
   box-shadow: 8px 11px 16px -7px rgba(0, 0, 0, 0.65);
-  color: antiquewhite;
+  color: white;
   display: flex;
   justify-content: flex-start; /* 왼쪽으로 정렬 */
   background-color: #bf3131;
