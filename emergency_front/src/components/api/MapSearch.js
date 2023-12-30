@@ -259,7 +259,7 @@ const MapSearch = ({ searchPlace }) => {
       className="map_wrap"
       style={{
         width: "100%",
-        height: "86vh",
+        height: "82.5vh",
       }}
     >
       <div

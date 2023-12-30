@@ -80,7 +80,7 @@ const TakingMedicine = () => {
 
   // 날씨포맷, 저장관련
   const handleSave = async () => {
-    if (!selectedDisease) {
+    if (!selectedDisease || !selectedDisease.trim()) {
       // 약물을 선택하지 않은 경우 처리
       alert("약명을 입력해주세요.");
       console.error('약명을 입력해주세요.');
