@@ -1,7 +1,7 @@
 import { useState } from "react";
 import MapSearch from "./MapSearch";
 import "./SearchInput.css";
-
+import searchbutton from "../../assets/searchbutton.png";
 function SearchInput() {
   const [input, setInput] = useState(""); // input 검색어 관리
   const [place, setPlace] = useState(""); // 입력 값 관리
@@ -28,7 +28,10 @@ function SearchInput() {
               value={input}
             ></input>
             <button className="searchInputButton" type="submit">
-              검색
+              <img
+                src={searchbutton}
+                style={{ width: "16px", height: "16px" }}
+              />
             </button>
           </form>
         </div>

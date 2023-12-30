@@ -7,23 +7,23 @@ function FirstAidListItem({ item }) {
   };
   return (
     <div className="FirstAidListItem">
-      <div>
-        <div>
-          <h1>{item.title}</h1>
+      <div className="firstaidItemContainer">
+        <div className="item-detail">
+          <span className="highlight">{item.title}</span>
         </div>
-        <div>
+        <div className="item-detail">
           <img
             className="FirstAidListItem-img"
             style={style}
             src={item.imgUrl}
             alt={item.title}
           ></img>
-          <div>
-            <span
-              className="FirstAidListItem-content"
-              dangerouslySetInnerHTML={{ __html: item.content }}
-            ></span>
-          </div>
+        </div>
+        <div className="item-detail">
+          <div
+            className="FirstAidListItem-content"
+            dangerouslySetInnerHTML={{ __html: item.content }}
+          ></div>
         </div>
       </div>
     </div>
@@ -39,24 +39,21 @@ function FirstAidList({ items }) {
   };
   return (
     <div className="firstaidMain">
-      {items.map((item) => (
-        <>
-          <div className="box bg-1">
-            <button
-              className="button button--winona button--border-thin button--round-s"
-              onClick={() => handleClick(item)}
-              data-text={item.title}
-            >
-              <span>{item.title}</span>
-            </button>
-            <div key={item.id}>
-              {selectedItem && selectedItem.id === item.id && (
-                <FirstAidListItem item={item} />
-              )}
-            </div>
-          </div>
-        </>
-      ))}
+      <div className="box bg-1">
+        {items.map((item) => (
+          <button
+            key={item.id}
+            className="button button--winona button--border-thin button--round-s"
+            onClick={() => handleClick(item)}
+            data-text={item.title}
+          >
+            <span>{item.title}</span>
+          </button>
+        ))}
+      </div>
+      <div className="selected-item">
+        {selectedItem && <FirstAidListItem item={selectedItem} />}
+      </div>
     </div>
   );
 }

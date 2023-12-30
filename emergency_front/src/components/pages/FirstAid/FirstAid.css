@@ -4,6 +4,18 @@
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
+.firstaid-header {
+  color: white;
+  padding: 1.5vh;
+  text-align: center;
+  background-color: #141e46;
+}
+.firstaidItemContainer {
+  padding-bottom: 2vh;
+}
+.FirstAidListItem-content {
+  padding-bottom: 3px;
+}
 .cf:before,
 .cf:after {
   content: "";
@@ -14,8 +26,9 @@
 }
 .firstaidMain {
   background-color: #fff5e0;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+
+  /* display: grid;
+  grid-template-columns: repeat(4, 1fr); */
 }
 .box {
   padding: 1.5em 0;
@@ -23,12 +36,15 @@
 .bg-1 {
   background: #fff5e0;
   color: #37474f;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  align-items: center;
 }
 .button {
-  float: left;
+  justify-content: center;
   min-width: 150px;
   max-width: 250px;
-  display: block;
+  display: flex;
   margin: 1em;
   padding: 1em 2em;
   border-color: #21333c;
@@ -39,6 +55,7 @@
   z-index: 1;
   -webkit-backface-visibility: hidden;
   -moz-osx-font-smoothing: grayscale;
+  text-align: center;
 }
 .button:focus {
   outline: none;
@@ -115,4 +132,24 @@
   opacity: 0;
   -webkit-transform: translate3d(0, -25%, 0);
   transform: translate3d(0, -25%, 0);
+}
+
+.FirstAidListItem {
+  padding-bottom: 70px;
+  display: flex;
+  justify-content: center;
+}
+
+.selected-item {
+  width: 100%;
+}
+
+.highlight {
+  font-size: xx-large;
+  font-weight: bold;
+  background: linear-gradient(to top, #ffe400 40%, transparent 40%);
+}
+
+.item-detail {
+  margin: 10px 0 10px 0;
 }

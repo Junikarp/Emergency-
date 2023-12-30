@@ -8,7 +8,7 @@
 .map_wrap {
   position: relative;
   width: 100%;
-  height: 350px;
+  height: 100%;
 }
 #category {
   position: absolute;
@@ -70,9 +70,7 @@
 #category li .store {
   background-position: -10px -180px;
 }
-#category li .emergency {
-  background-position: -10px 150px;
-}
+
 #category li.on .category_bg {
   background-position-x: -46px;
 }

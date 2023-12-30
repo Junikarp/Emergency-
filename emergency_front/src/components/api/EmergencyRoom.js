@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { xmlToJson } from "./util";
 import { parseAdd } from "./util";
 import TestMap from "./TestMap";
+import "./EmergencyRoom.css";
 // 응급실 데이터 받아오고 출력함 (emergencyMap에서 centerAddr 가져옴)
 function EmergencyRoom({ centerAddr }) {
   const parsedAddress = parseAdd(centerAddr);
@@ -90,51 +91,65 @@ function EmergencyRoom({ centerAddr }) {
       {Array.isArray(hospitalData)
         ? hospitalData.map((hospital, index) => (
             <div key={index}>
-              <p>업데이트 시간: {formatUpdateTime(hospitalData.hvidate)}</p>
-              <p>병원명: {hospital.dutyName}</p>
-              <p>병원 전화번호: {hospital.dutyTel3}</p>
-              <p>현재 가용가능 응급실 수: {hospital.hvec}</p>
+              <div>업데이트 시간: {formatUpdateTime(hospital.hvidate)}</div>
+              <div>병원명: {hospital.dutyName}</div>
+              <div>병원 전화번호: {hospital.dutyTel3}</div>
+              <div>현재 가용가능 응급실 수: {hospital.hvec}</div>
               <hr />
               {hospitalMsgData
                 .filter((msgItem) => msgItem.dutyAddr === hospital.dutyAddr)
                 .map((msgItem) => (
-                  <div key={msgItem.rnum}>
-                    <p>응급실 주소: {msgItem.dutyAddr}</p>
-                    <p>응급실 메시지: {msgItem.symBlkMsg}</p>
+                  <div key={msgItem.rnum} className="msg-container">
+                    <div>병원명: {msgItem.dutyName}</div>
+                    <div>응급실 메시지: {msgItem.symBlkMsg}</div>
                   </div>
                 ))}
             </div>
           ))
         : hospitalData && (
             <div>
-              <p>업데이트 시간: {formatUpdateTime(hospitalData.hvidate)}</p>
-              <p>병원명: {hospitalData.dutyName}</p>
-              <p>병원 전화번호: {hospitalData.dutyTel3}</p>
-              <p>현재 가용가능 응급실 수: {hospitalData.hvec}</p>
-              <hr />
-              {Array.isArray(hospitalMsgData) &&
-                hospitalMsgData.reduce((uniqueAddresses, msgItem) => {
-                  if (!uniqueAddresses.includes(msgItem.dutyAddr)) {
-                    uniqueAddresses.push(msgItem.dutyAddr);
-
-                    const messagesForAddress = hospitalMsgData
-                      .filter((item) => item.dutyAddr === msgItem.dutyAddr)
-                      .map((item) => (
-                        <div key={item.rnum}>
-                          <p>응급실 주소: {item.dutyAddr}</p>
-                          <p>응급실 메시지: {item.symBlkMsg}</p>
-                        </div>
-                      ));
-
-                    return [...uniqueAddresses, ...messagesForAddress];
-                  }
-                  return uniqueAddresses;
-                }, [])}
-
               <div>
-                {/* <p>응급실 주소 : {hospitalMsgData.dutyAddr}</p>
-                <p>응급실 메시지 : {hospitalMsgData.symBlkMsg}</p> */}
+                <div>
+                  업데이트 시간: {formatUpdateTime(hospitalData.hvidate)}
+                </div>
+                <div>병원명: {hospitalData.dutyName}</div>
+                <div>병원 전화번호: {hospitalData.dutyTel3}</div>
+                <div>현재 가용가능 응급실 수: {hospitalData.hvec}</div>
+                <hr />
               </div>
+              <ul>
+                {Array.isArray(hospitalMsgData) &&
+                  hospitalMsgData.reduce((uniqueAddresses, msgItem) => {
+                    if (!uniqueAddresses.includes(msgItem.dutyAddr)) {
+                      uniqueAddresses.push(msgItem.dutyAddr);
+
+                      const messagesForAddress = hospitalMsgData
+                        .filter((item) => item.dutyAddr === msgItem.dutyAddr)
+                        .map((item) => (
+                          <li>
+                            <div key={item.rnum} className="msg-container">
+                              <div style={{ padding: "3px" }}>
+                                병원명: {item.dutyName}
+                              </div>
+                              <div style={{ padding: "3px" }}>
+                                응급실 메시지: {item.symBlkMsg}
+                              </div>
+                              <hr />
+                            </div>
+                          </li>
+                        ));
+
+                      return [...uniqueAddresses, ...messagesForAddress];
+                    }
+                    return uniqueAddresses;
+                  }, [])}
+              </ul>
+
+              {/* 
+              <div>
+                <div>응급실 주소 : {hospitalMsgData.dutyAddr}</div>
+                <div>응급실 메시지 : {hospitalMsgData.symBlkMsg}</div>
+              </div> */}
             </div>
           )}
       <TestMap

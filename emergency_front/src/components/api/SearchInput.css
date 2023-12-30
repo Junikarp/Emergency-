@@ -1,5 +1,7 @@
 .form-style {
   /* padding: 10px; */
+  /* border-radius: 20px; */
+  border: solid 3px #141e46;
 }
 .form-container {
   position: absolute;
@@ -7,14 +9,37 @@
   width: 250px;
   z-index: 10;
   margin-top: 5vh;
-  margin-left: 10px;
+  /* margin-left: 10px; */
+  background-color: white;
+  /* border-radius: 20px; */
+  /* border: solid 3px #141e46; */
 }
 .searchInput {
   padding: 3px;
   width: 80%;
+  /* border-color: #141e46; */
+  border: 0px;
+  font-size: 16px;
+  outline: none;
 }
 
 .searchInputButton {
   padding: 3px;
   width: 20%;
+  background-color: transparent;
+  border-style: none;
+  border-radius: 20px;
+  /* border: solid 3px #141e46; */
+  /* border-color: white; */
+}
+
+.searchInputButton:hover {
+  background-color: #ffe6e6;
+  border-radius: 20px;
+  /* border: solid 3px #141e46; */
+  /* border-color: #141e46; */
+}
+
+input::placeholder {
+  padding-left: 10px;
 }

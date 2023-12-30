@@ -277,13 +277,13 @@ function Category() {
           }}
         ></div>
         <ul id="category">
-          <li id="HP8" data-order="0">
+          <li id="HP8" data-order="2">
             <button onclick={handleHospitalClick}>
-              <span className="category_bg hospital"></span>
+              <span className="category_bg pharmacy"></span>
               병원
             </button>
           </li>
-          <li id="PM9" data-order="1">
+          <li id="PM9" data-order="2">
             <span className="category_bg pharmacy"></span>
             약국
           </li>
