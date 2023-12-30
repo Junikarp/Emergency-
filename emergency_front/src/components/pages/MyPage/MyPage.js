@@ -27,27 +27,47 @@ const MyPage = ({ token }) => {
               <MyPageContainer>
                 <div id="mypage-small-button-box">
                     <Link to="/mypage/mypagedetail">
-                      <div class="mypage-button">
+                      <div className="mypage-button">
                         <div className="mypage-button-img">
                         <img src={myinfoImg} style={imgStyle}/>
                         </div>
                         <div className="mypage-button-text">
                            <p id="mypage-button-text">마이페이지</p>
                         </div>
-                       </div></Link>
+                       </div>
+                       </Link>
                     <Link to="/mypage/disease">
-                      <div class="mypage-button">
+                      <div className="mypage-button">
                       <div className="mypage-button-img">
                         <img src={virusImg} style={imgStyle}/>
                         </div>
                         <div className="mypage-button-text">
                            <p id="mypage-button-text">내 질환</p>
                         </div>
-                       </div></Link>
+                       </div>
+                      </Link>
                 </div>
                 <div id="mypage-small-button-box">
-                    <Link to="/mypage/takingmedicine"><div class="mypage-button"><img src={medicationImg} style={imgStyle}/><p id="mypage-button-text">복용약</p></div></Link>
-                    <Link to="/mypage/allergy"><div class="mypage-button"><img src={allergyImg} style={imgStyle}/><p id="mypage-button-text">내 알레르기</p></div></Link>
+                    <Link to="/mypage/takingmedicine">
+                    <div className="mypage-button">
+                        <div className="mypage-button-img">
+                        <img src={medicationImg} style={imgStyle}/>
+                        </div>
+                        <div className="mypage-button-text">
+                           <p id="mypage-button-text">내 복용약</p>
+                        </div>
+                       </div>
+                    </Link>
+                    <Link to="/mypage/allergy">
+                    <div className="mypage-button">
+                        <div className="mypage-button-img">
+                        <img src={allergyImg} style={imgStyle}/>
+                        </div>
+                        <div className="mypage-button-text">
+                           <p id="mypage-button-text">내 알레르기</p>
+                        </div>
+                       </div>
+                    </Link>
                 </div>
               </MyPageContainer>
             </div>
