@@ -60,12 +60,6 @@ h2 {
   margin-bottom: 10px;
 }
 
-.loginForm-button {
-  display: flex;
-  justify-content: space-between;
-  padding: 10px;
-}
-
 .loginForm-box {
   display: flex;
   flex-direction: column;
@@ -86,25 +80,29 @@ h2 {
   outline: 3px solid #bf3131;
   /* background-color: #f8dbcb; focus될 때의 배경 색상 변경 */
 }
+.loginForm-button {
+  display: flex;
+  justify-content: space-between;
+}
 
-button {
+#login {
   text-align: center;
   color: white;
   font-size: 18px;
-  width: 8rem;
+  width: 30%;
   height: 40px;
   background-color: #bf3131;
   transition: background-color 0.3s ease;
 }
 
-button:hover {
+#login:hover {
   background-color: #9f2828;
 }
 
 #regist-link {
-  margin-top: 1%;
   color: black;
   font-size: 18px;
+  margin-top: 10px;
   text-align: center;
   font-weight: 600;
   transition: text-decoration 0.3s ease;
@@ -113,3 +111,16 @@ button:hover {
 #regist-link:hover {
   text-decoration: underline;
 }
+
+/* button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  margin-top: 10px;
+} */
+/* 
+button:hover {
+  background-color: #9f2828;
+} */

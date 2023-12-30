@@ -18,8 +18,8 @@ const Register = () => {
   });
 
   //유효한 상태인지 문구 띄우기
-  const [pwMsg, setPwMsg] = useState("");
-  const [pwCheckMsg, setPwCheckMsg] = useState("");
+  const [pwMsg, setPwMsg] = useState(" ");
+  const [pwCheckMsg, setPwCheckMsg] = useState(" ");
   const navigate = useNavigate();
 
   const validatePw = (password) => {
@@ -38,7 +38,7 @@ const Register = () => {
       setFormData((prevData) => ({ ...prevData, [name]: value }));
 
       if (!validatePw(value)) {
-        setPwMsg("영문, 숫자, 특수기호 조합으로 8자리 이상 입력해주세요");
+        setPwMsg("영문, 숫자, 특수기호 조합 8자리 이상");
       } else {
         setPwMsg("");
       }
@@ -47,7 +47,11 @@ const Register = () => {
       setFormData((prevData) => ({ ...prevData, [name]: value }));
 
       const isPasswordMatch = value === formData.password;
-      setPwCheckMsg(isPasswordMatch ? "" : "비밀번호가 일치하지 않습니다.");
+      setPwCheckMsg(
+        isPasswordMatch
+          ? "비밀번호가 일치합니다"
+          : "비밀번호가 일치하지 않습니다."
+      );
     } else {
       setFormData((prevData) => ({ ...prevData, [name]: value }));
     }
