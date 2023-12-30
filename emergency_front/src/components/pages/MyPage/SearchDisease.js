@@ -145,69 +145,64 @@ const MakeSelect = () => {
 
   return (
     <>
-    <div id="disease-whole">
-      <div id="name-box">
-        {userInfo.name} 님 {/* 이름과 ID를 표시합니다. */}
-      </div>
-      <div id="main-con">
-        <div id="disease-title">
-          <img src={diseaseImg} id="diseaseImg"></img>
-          <p>내 질환</p>
+      <div id="disease-whole">
+        <div id="name-box">
+          {userInfo.name} 님 {/* 이름과 ID를 표시합니다. */}
         </div>
-        <div id="input-box">
+        <div id="main-con">
+          <div id="disease-title">
+            <img src={diseaseImg} id="diseaseImg"></img>
+            <p>내 질환</p>
+          </div>
+          <div id="input-box">
+            <div>
+              <p>질환 선택</p>
+              <Select
+                id="select"
+                value={selectedDisease}
+                onChange={handleDiseaseChange}
+                placeholder="질병을 선택하세요."
+                options={diseaseOptions}
+              />
+            </div>
+            <div id="picker-button">
+              <p>날짜 선택</p>
+              <DatePicker
+                id="picker"
+                selected={selectedDate}
+                onChange={handleDateChange}
+              />
+              <button className="save" onClick={handleSave}>
+                저장
+              </button>
+            </div>
+          </div>
           <div>
-            <p>질환 선택</p>
-            <Select
-              id="select"
-              value={selectedDisease}
-              onChange={handleDiseaseChange}
-              placeholder="질병을 선택하세요."
-              options={diseaseOptions}
-              />
-          </div>
-          <div id="picker-button">
-            <p>날짜 선택</p>
-            <DatePicker
-              id="picker"
-              selected={selectedDate}
-              onChange={handleDateChange}
-<<<<<<< HEAD
-            />
-            <button className="save" onClick={handleSave}>
-              저장
-            </button>
-=======
-              />
-            <button className="save" onClick={handleSave}>저장</button>
->>>>>>> 2ce08a5c7d6e695bd970f681082837b41744046d
-          </div>
-        </div>
-        <div>
-          <table id="disease-table">
-            <thead>
-              <tr>
-                <th className="disease-cause">진단 받은 병명</th>
-                <th>진단 일자</th>
-              </tr>
-            </thead>
-            <tbody>
-              {/* Disease 배열을 순회하며 테이블 행을 출력합니다. */}
-              {Disease.map((item, index) => (
-                <tr key={index}>
-                  <td>{item.value}</td>
-                  <td>{item.diseaseDate}</td>
-                  <img
-                    src={deleteImg}
-                    id="deleteImg"
-                    onClick={() => handleDelete(item.diseaseId)}
-                    style={{ cursor: "pointer" }}
-                  />
+            <table id="disease-table">
+              <thead>
+                <tr>
+                  <th className="disease-cause">진단 받은 병명</th>
+                  <th>진단 일자</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {/* Disease 배열을 순회하며 테이블 행을 출력합니다. */}
+                {Disease.map((item, index) => (
+                  <tr key={index}>
+                    <td>{item.value}</td>
+                    <td>{item.diseaseDate}</td>
+                    <img
+                      src={deleteImg}
+                      id="deleteImg"
+                      onClick={() => handleDelete(item.diseaseId)}
+                      style={{ cursor: "pointer" }}
+                    />
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
-      </div>
       </div>
       <div className="foot">
         <FooterNav />
