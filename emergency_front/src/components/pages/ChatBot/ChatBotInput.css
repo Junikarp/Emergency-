@@ -1,15 +1,30 @@
 .userInputContainer {
-  height: 3rem;
+  width: 100%;
+  height: 3.5rem;
   display: flex;
-  justify-content: center;
-  gap: 10px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.userInput-textarea textarea {
+  border-radius: 13px;
+  width: 90vw;
+  padding: 10px;
+  font-size: 1rem;
+  font-weight: 500;
 }
 .userInputText {
   resize: none;
-  width: 80%;
   height: 2.5rem;
+  width: 100%;
 }
 
-button {
+.userInput-button {
+  background-color: white;
+  /* margin-left: auto; */
+  border-radius: 50%;
+  overflow: hidden;
+}
+.userInput-button button {
   border: 0;
 }
