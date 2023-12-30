@@ -86,11 +86,11 @@ select:focus {
 .registform-input {
   position: relative;
 }
-/* p {
+.message p {
   position: absolute;
   top: 2.2rem;
   font-size: 15px;
-} */
+}
 .registform-input input {
   background-color: #f6e7d8;
   border: none;

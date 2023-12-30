@@ -95,7 +95,9 @@ const RegisterForm = ({
               name="password"
               onChange={handleChange}
             />
-            <p className="message">{pwMsg}</p>
+            <div className="message">
+              <p>{pwMsg}</p>
+            </div>
           </div>
           <div className="registform-input">
             <input
@@ -105,7 +107,9 @@ const RegisterForm = ({
               name="passwordCheck"
               onChange={handleChange}
             />
-            <p className="message">{pwCheckMsg}</p>
+            <div className="message">
+              <p>{pwCheckMsg}</p>
+            </div>
           </div>
           <div className="registform-input" id="height-weight-input">
             <input
