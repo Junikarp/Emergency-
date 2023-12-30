@@ -55,12 +55,12 @@ const MyPageDetail = () => {
       {userInfo && (
         <div>
           <div id="name-box">
-            {userInfo.name} 님 {/* 이름과 ID를 표시합니다. */}
+            <p>{userInfo.name} 님 </p>{/* 이름과 ID를 표시합니다. */}
           </div>
           <div id="myinfo-main-con">
             <div id="myinfo-main-con-title">
               <img src={mypageImg} id="myinfoImg"></img>
-              마이페이지
+              <p>마이페이지</p>
             </div>
             <table id="myinfo-table">
               <tbody>
