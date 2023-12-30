@@ -2,6 +2,8 @@ import FooterNav from "../../FooterNav";
 import { useEffect, useState } from "react";
 import { jwtDecode } from "jwt-decode";
 import { useNavigate } from "react-router-dom";
+import "./MyPageDetail.css";
+import mypageImg from "../../../assets/myinfo.png";
 
 const MyPageDetail = () => {
   const [token, setToken] = useState("");
@@ -43,24 +45,61 @@ const MyPageDetail = () => {
     navigate("/mypage/mypagedetail/update");
   };
 
+  const handleMypage = () => {
+    navigate("/mypage");
+  };
+
   return (
     <>
-      <h2>상세정보</h2>
       {/* userInfo 응답와야 렌더링되게끔! */}
       {userInfo && (
         <div>
-          <div>
-            <p>아이디 : {userInfo.id}</p>
-            <p>이름 : {userInfo.name}</p>
-            <p>신장 : {userInfo.height}</p>
-            <p>몸무게 : {userInfo.weight}</p>
-            <p>
-              혈액형 : {userInfo.bloodtypeRh} {userInfo.bloodtypeABO}
-            </p>
-            <p>보호자 연락처 : {userInfo.guardianTel}</p>
+          <div id="name-box">
+            {userInfo.name} 님 {/* 이름과 ID를 표시합니다. */}
           </div>
-          <div>
-            <button onClick={handleUpdatePage}>수정</button>
+          <div id="myinfo-main-con">
+            <div id="myinfo-main-con-title">
+              <img src={mypageImg} id="myinfoImg"></img>
+              마이페이지
+            </div>
+            <table id="myinfo-table">
+              <tbody>
+                <tr>
+                  <td>아이디</td>
+                  <td>{userInfo.id}</td>
+                </tr>
+                <tr>
+                  <td>이름</td>
+                  <td>{userInfo.name}</td>
+                </tr>
+                <tr>
+                  <td>신장</td>
+                  <td>{userInfo.height}</td>
+                </tr>
+                <tr>
+                  <td>몸무게</td>
+                  <td>{userInfo.weight}</td>
+                </tr>
+                <tr>
+                  <td>혈액형</td>
+                  <td>
+                    {userInfo.bloodtypeRh} {userInfo.bloodtypeABO}
+                  </td>
+                </tr>
+                <tr>
+                  <td>보호자 연락처</td>
+                  <td>{userInfo.guardianTel}</td>
+                </tr>
+              </tbody>
+            </table>
+            <div id="myinfo-button-con">
+              <button id="myinfo-update" onClick={handleUpdatePage}>
+                수정
+              </button>
+              <button id="myinfo-cancel" onClick={handleMypage}>
+                취소
+              </button>
+            </div>
           </div>
         </div>
       )}
