@@ -102,3 +102,11 @@
   border-radius: 8px;
   word-break: break-word;
 }
+
+#chatbotImg {
+  width: 60px;
+  height: 60px;
+  margin:12px;
+}
+
+
