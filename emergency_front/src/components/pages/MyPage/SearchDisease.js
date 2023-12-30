@@ -171,15 +171,10 @@ const MakeSelect = () => {
               id="picker"
               selected={selectedDate}
               onChange={handleDateChange}
-<<<<<<< HEAD
             />
             <button className="save" onClick={handleSave}>
               저장
             </button>
-=======
-              />
-            <button className="save" onClick={handleSave}>저장</button>
->>>>>>> 2ce08a5c7d6e695bd970f681082837b41744046d
           </div>
         </div>
         <div>

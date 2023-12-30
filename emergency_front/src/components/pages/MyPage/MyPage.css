@@ -5,7 +5,6 @@
   margin-bottom: 30px;
   margin-top: 70px;
   border-radius: 30px;
-<<<<<<< HEAD
   text-align: center;
 }
 .mypage-mypagecontainer-global {
@@ -24,8 +23,6 @@
   height: 4rem;
   background-color: #141e46;
   color: white;
-=======
->>>>>>> 2ce08a5c7d6e695bd970f681082837b41744046d
 }
 
 #mypage-main {
@@ -57,10 +54,7 @@
   font-size: 30px;
   align-items: center;
   border-radius: 20px;
-<<<<<<< HEAD
   border: none;
-=======
->>>>>>> 2ce08a5c7d6e695bd970f681082837b41744046d
 }
 .mypage-button-img {
   display: flex;
@@ -73,12 +67,11 @@
   text-align: left;
   color: black;
 }
-<<<<<<< HEAD
 
 #login {
   cursor: pointer;
-=======
+}
+
 .btn-mypage {
   float: right;
->>>>>>> 2ce08a5c7d6e695bd970f681082837b41744046d
 }

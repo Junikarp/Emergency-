@@ -135,7 +135,6 @@ const MyPage = ({ token }) => {
                           <p id="mypage-button-text">내 알레르기</p>
                         </div>
                       </div>
-<<<<<<< HEAD
                     </Link>
                   </div>
                 </MyPageContainer>
@@ -156,58 +155,6 @@ const MyPage = ({ token }) => {
                   </>
                 )}
               </div>
-=======
-                    </div>
-                  </Link>
-                </div>
-                <div id="mypage-small-button-box">
-                  <Link to="/mypage/takingmedicine">
-                    <div className="mypage-button">
-                      <div className="mypage-button-img">
-                        <img src={medicationImg} style={imgStyle} />
-                      </div>
-                      <div className="mypage-button-text">
-                        <p id="mypage-button-text">내 복용약</p>
-                      </div>
-                    </div>
-                  </Link>
-                  <Link to="/mypage/allergy">
-                    <div className="mypage-button">
-                      <div className="mypage-button-img">
-                        <img src={allergyImg} style={imgStyle} />
-                      </div>
-                      <div className="mypage-button-text">
-                        <p id="mypage-button-text">내 알레르기</p>
-                      </div>
-                    </div>
-                  </Link>
-                </div>
-              </MyPageContainer>
-              {isLogin ? (
-                // 로그인 상태일 때 로그아웃 버튼 렌더링
-                <button
-                  onClick={handleLogout}
-                  id="login"
-                  className="btn-mypage"
-                >
-                  로그아웃
-                </button>
-              ) : (
-                // 로그인 상태가 아닐 때 로그인 버튼 렌더링
-                <>
-                  <Link to="/login">
-                    <button id="login" className="btn-mypage">
-                      로그인
-                    </button>
-                  </Link>
-                  <Link to="/register">
-                    <button id="login" className="btn-mypage">
-                      회원가입
-                    </button>
-                  </Link>
-                </>
-              )}
->>>>>>> 2ce08a5c7d6e695bd970f681082837b41744046d
             </div>
           </div>
           <FooterNav />
