@@ -11,19 +11,21 @@ function FirstAidListItem({ item }) {
         <div className="item-detail">
           <span className="highlight">{item.title}</span>
         </div>
-        <div className="item-detail">
-          <img
-            className="FirstAidListItem-img"
-            style={style}
-            src={item.imgUrl}
-            alt={item.title}
-          ></img>
-        </div>
-        <div className="item-detail">
-          <div
-            className="FirstAidListItem-content"
-            dangerouslySetInnerHTML={{ __html: item.content }}
-          ></div>
+        <div className="detail-container">
+          <div className="item-detail">
+            <img
+              className="FirstAidListItem-img"
+              style={style}
+              src={item.imgUrl}
+              alt={item.title}
+            ></img>
+          </div>
+          <div className="item-detail">
+            <div
+              className="FirstAidListItem-content"
+              dangerouslySetInnerHTML={{ __html: item.content }}
+            ></div>
+          </div>
         </div>
       </div>
     </div>
