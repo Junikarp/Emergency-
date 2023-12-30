@@ -1,5 +1,5 @@
 const MyPageContainer = ({ children }) => {
-  return <div>{children}</div>;
+  return <div className="mypagecontainer-global">{children}</div>;
 };
 
 export default MyPageContainer;

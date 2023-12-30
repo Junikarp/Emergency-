@@ -6,7 +6,7 @@ import menu from "../../../assets/menubar.png";
 import firstaid from "../../../assets/firstaid.png";
 import home from "../../../assets/home.png";
 import mypage from "../../../assets/mypage.png";
-import chatbotImg from "../../../assets/chatbotResult.png"
+import chatbotImg from "../../../assets/chatbotResult.png";
 import "./ChatBot.css";
 const apiKey = process.env.REACT_APP_GPT_API_KEY;
 // const dummyData = `{"respond": "이가 빠진 경우, 즉시 다음과 같은 조치를 취해야 합니다:
@@ -109,10 +109,14 @@ const ChatBot = () => {
                 </div>
               </div>
             ) : (
-              <div className="gptChat">
-                <img src={chatbotImg} id="chatbotImg"></img>
-                <div className="chatbot-message">
-                  <p>{message.content}</p>
+              <div className="chatbot-message-chatgpt-img">
+                <div className="chatbot-img">
+                  <img src={chatbotImg} id="chatbotImg" />
+                </div>
+                <div className="gptChat">
+                  <div className="chatbot-message">
+                    <p>{message.content}</p>
+                  </div>
                 </div>
               </div>
             )}

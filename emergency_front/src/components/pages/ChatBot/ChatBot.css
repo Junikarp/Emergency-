@@ -8,7 +8,7 @@
   justify-content: center;
   background-color: #141e46;
   color: white;
-  height: 3.5rem;
+  height: 4rem;
 }
 
 .chatbot-header-menubar {
@@ -104,9 +104,20 @@
 }
 
 #chatbotImg {
-  width: 60px;
-  height: 60px;
-  margin:12px;
+  width: 50px;
+  height: 50px;
+  margin: 12px;
+  text-align: center;
 }
 
-
+.chatbot-message-chatgpt-img {
+  display: flex;
+  gap: 10px;
+}
+.chatbot-img {
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  overflow: hidden;
+  background-color: white;
+}
