@@ -49,6 +49,10 @@ body {
     /* 필요한 스타일 추가 */
 }
 
+.disease-cause {
+    width:391px;
+}
+
 .save {
     height: 37px;
     width: 60px;
@@ -92,8 +96,6 @@ body {
 
 #disease-table th, #disease-table td {
     padding: 8px;
-    padding-left: 70px;
-    padding-right: 70px;
     text-align: center; /* 텍스트 정렬을 왼쪽으로 설정합니다. */
 }
 

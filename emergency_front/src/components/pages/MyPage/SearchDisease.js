@@ -48,7 +48,7 @@ const MakeSelect = () => { // 선택된 질병 상태
           console.error('Error fetching disease data:', diseaseResponse.statusText);
         }
 
-        const userDiseaseResponse = await fetch(`http://localhost:8080/disease-api/mypage/${decodedId}/disease`);
+        const userDiseaseResponse = await fetch(`http://localhost:8080/disease-api/mypage/${decodedId}/ulDisease`);
           if (userDiseaseResponse.ok) {
             const userDiseaseData = await userDiseaseResponse.json();
             setDisease(userDiseaseData);
@@ -138,11 +138,11 @@ const MakeSelect = () => { // 선택된 질병 상태
       <div id="main-con">
         <div id="disease-title">
           <img src={diseaseImg} id="diseaseImg"></img>
-          <p>내 질병</p>
+          <p>내 질환</p>
         </div>
         <div id="input-box">
           <div>
-            <p>질병 선택</p>
+            <p>질환 선택</p>
             <Select id="select"
               value={selectedDisease}
               onChange={handleDiseaseChange}
@@ -163,7 +163,7 @@ const MakeSelect = () => { // 선택된 질병 상태
           <table id="disease-table">
             <thead>
               <tr>
-                <th>진단 받은 병명</th>
+                <th className="disease-cause">진단 받은 병명</th>
                 <th>진단 일자</th>
               </tr>
             </thead>

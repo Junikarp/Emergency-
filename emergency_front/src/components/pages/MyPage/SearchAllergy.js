@@ -161,7 +161,7 @@ const MakeSelect = () => {
           </div>
         </div>
         <div>
-          <table id="disease-table">
+          <table id="allergy-table">
             <thead>
               <tr>
                 <th>알레르기 유발물질</th>
