@@ -80,7 +80,7 @@ body {
     align-items: center;
 }
 
-#disease-table {
+#allergy-table {
     margin-left: 30px;
     margin-right: 30px;
     border-collapse: collapse; /* 테이블의 경계를 합칩니다. */
@@ -112,7 +112,7 @@ body {
     width: 30px;
 }
 
-#disease-table > tbody > tr > td {
+#allergy-table > tbody > tr > td {
     border-bottom: 1px solid #151515; /* 아래쪽 선 스타일 지정 */
 }
 

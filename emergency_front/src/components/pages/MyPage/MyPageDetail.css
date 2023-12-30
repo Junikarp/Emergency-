@@ -10,7 +10,6 @@
   height: 90px;
   border-radius: 20px;
   margin-top: 30px;
-  /* margin-left: 450px; */
   justify-content: center;
   align-content: center;
   font-size: 50px;
@@ -19,7 +18,6 @@
 #myinfo-main-con {
   display: flex;
   flex-direction: column;
-  /* margin-left: 450px; */
   align-items: center;
   width: 600px;
   height: 500px;
