@@ -264,7 +264,7 @@ function Category() {
         className="map_wrap"
         style={{
           width: "100%",
-          height: "70vh",
+          height: "86vh",
         }}
       >
         <div
